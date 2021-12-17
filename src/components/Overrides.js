@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Overrides = ({ overrides }) => {
+const Overrides = ({ selectedOverrides }) => {
 	return (
 		<div className='container'>
 			<section className='section mt-6'>
 				<h1 className='title is-1'>Available Overrides</h1>
 
 				<ul>
-					{overrides.map((a) => {
-						return <li key={overrides.indexOf(a)}>{a}</li>;
+					{selectedOverrides.map((a) => {
+						return <li key={selectedOverrides.indexOf(a)}>{a}</li>;
 					})}
 				</ul>
 			</section>
@@ -18,7 +18,7 @@ const Overrides = ({ overrides }) => {
 };
 
 Overrides.propTypes = {
-	overrides: PropTypes.array,
+	selectedOverrides: PropTypes.array,
 };
 
 export default Overrides;

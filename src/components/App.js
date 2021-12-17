@@ -6,7 +6,7 @@ import '../App.css';
 
 function App() {
 	const [url, setUrl] = useState('');
-	const [overrides, setOverrides] = useState([]);
+	const [selectedOverrides, setSelectedOverrides] = useState([]);
 
 	return (
 		<Router>
@@ -15,13 +15,17 @@ function App() {
 					exact
 					path='/'
 					element={
-						<MainPage url={url} setUrl={setUrl} setOverrides={setOverrides} />
+						<MainPage
+							url={url}
+							setUrl={setUrl}
+							setSelectedOverrides={setSelectedOverrides}
+						/>
 					}
 				/>
 				<Route
 					exact
 					path='/overrides'
-					element={<Overrides overrides={overrides} />}
+					element={<Overrides selectedOverrides={selectedOverrides} />}
 				/>
 			</Routes>
 		</Router>
