@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MainPage from './MainPage.js';
-import Overrides from './Overrides.js';
+import OverrideDisplay from './OverrideDisplay.js';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import '../App.css';
 
@@ -25,7 +25,7 @@ function App() {
 				<Route
 					exact
 					path='/overrides'
-					element={<Overrides selectedOverrides={selectedOverrides} />}
+					element={<OverrideDisplay selectedOverrides={selectedOverrides} />}
 				/>
 			</Routes>
 		</Router>

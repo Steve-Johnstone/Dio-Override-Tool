@@ -20,8 +20,8 @@ const MainPage = ({ url, setUrl, setSelectedOverrides }) => {
 	}, []);
 
 	return (
-		<div className='container'>
-			<section className='section mt-6'>
+		<section className='section mt-6'>
+			<div className='container'>
 				<h1 style={{ color: '#d32f2f' }} className='title is-1'>
 					Override Tool
 				</h1>
@@ -54,8 +54,8 @@ const MainPage = ({ url, setUrl, setSelectedOverrides }) => {
 						</div>
 					</form>
 				</div>
-			</section>
-		</div>
+			</div>
+		</section>
 	);
 };
 
