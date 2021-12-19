@@ -25,7 +25,13 @@ function App() {
 				<Route
 					exact
 					path='/overrides'
-					element={<OverrideDisplay selectedOverrides={selectedOverrides} />}
+					element={
+						<OverrideDisplay
+							url={url}
+							setUrl={setUrl}
+							selectedOverrides={selectedOverrides}
+						/>
+					}
 				/>
 			</Routes>
 		</Router>

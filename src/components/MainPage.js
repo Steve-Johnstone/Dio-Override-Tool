@@ -20,9 +20,9 @@ const MainPage = ({ url, setUrl, setSelectedOverrides }) => {
 	}, []);
 
 	return (
-		<section className='section mt-2'>
+		<section>
 			<div className='container'>
-				<h2 style={{ color: '#d32f2f' }} className='title is-2'>
+				<h2 style={{ color: '#d32f2f' }} className='title is-2 mt-5'>
 					Dio Override Tool
 				</h2>
 				<div>

@@ -5,13 +5,13 @@ import { capitalise } from '../helpers/capitalise';
 import Header from './Header';
 import Footer from './Footer';
 
-const OverrideDisplay = ({ selectedOverrides }) => {
+const OverrideDisplay = ({ url, setUrl, selectedOverrides }) => {
 	const [searchTerm, setSearchTerm] = useState('');
 
 	return (
 		<div>
 			<Header setSearchTerm={setSearchTerm} />
-			<section className='section mt-2'>
+			<section className='section'>
 				<div className='container'>
 					<h4 className='title is-4'>All Overrides</h4>
 					<div>
@@ -26,13 +26,15 @@ const OverrideDisplay = ({ selectedOverrides }) => {
 				</div>
 				<p>{searchTerm}</p>
 			</section>
-			<Footer />
+			<Footer url={url} />
 		</div>
 	);
 };
 
 OverrideDisplay.propTypes = {
 	selectedOverrides: PropTypes.array,
+	url: PropTypes.string,
+	setUrl: PropTypes.func,
 };
 
 export default OverrideDisplay;
