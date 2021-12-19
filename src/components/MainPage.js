@@ -27,11 +27,11 @@ const MainPage = ({ url, setUrl, setSelectedOverrides }) => {
 				</h2>
 				<div>
 					<form className='field py-2'>
-						<div style={{ width: '50%' }} className='control'>
+						<div style={{ width: '40%' }} className='control'>
 							<label htmlFor='text' className='label'>
 								Local URL of the page
 							</label>
-							<div className='level'>
+							<div>
 								<input
 									name='url'
 									className='input is-link level-item'
@@ -45,7 +45,7 @@ const MainPage = ({ url, setUrl, setSelectedOverrides }) => {
 									e.preventDefault();
 									setSelectedOverrides(overrides[url]);
 								}}
-								className='button is-info'
+								className='button is-info mt-3'
 							>
 								<Link style={{ color: 'white' }} to='/overrides'>
 									GO
