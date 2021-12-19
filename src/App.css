@@ -1,7 +1,17 @@
-#override-display {
-	height: 500px;
+.override-list {
+	height: 600px;
+	width: 80%;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	width: 80%;
+}
+
+.override-list li {
+	margin-top: 0.25em;
+	margin-bottom: 0.25em;
+	cursor: pointer;
+}
+
+.override-list li:hover {
+	background-color: rgb(241, 236, 236);
 }
