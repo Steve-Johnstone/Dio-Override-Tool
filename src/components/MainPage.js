@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import 'bulma/css/bulma.min.css';
 
-const MainPage = ({ url, setUrl, setSelectedOverrides }) => {
+const MainPage = ({ url, setUrl, setOverrideList }) => {
 	const [overrides, setOverrides] = useState([]);
 
 	useEffect(() => {
@@ -14,14 +14,13 @@ const MainPage = ({ url, setUrl, setSelectedOverrides }) => {
 				url: 'http://localhost:8080/mock/override-data.json',
 			});
 			setOverrides(response.data.overrides);
-			console.log('overrides', overrides);
 		};
 		axiosPosts();
 	}, []);
 
 	return (
 		<section>
-			<div className='container'>
+			<div className='container p-4'>
 				<h2 style={{ color: '#d32f2f' }} className='title is-2 mt-5'>
 					Dio Override Tool
 				</h2>
@@ -43,7 +42,7 @@ const MainPage = ({ url, setUrl, setSelectedOverrides }) => {
 							<button
 								onClick={(e) => {
 									e.preventDefault();
-									setSelectedOverrides(overrides[url]);
+									setOverrideList(overrides[url]);
 								}}
 								className='button is-info mt-3'
 							>
@@ -62,7 +61,7 @@ const MainPage = ({ url, setUrl, setSelectedOverrides }) => {
 MainPage.propTypes = {
 	url: PropTypes.string,
 	setUrl: PropTypes.func,
-	setSelectedOverrides: PropTypes.func,
+	setOverrideList: PropTypes.func,
 };
 
 export default MainPage;

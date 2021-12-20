@@ -68,3 +68,22 @@ body {
 	margin-bottom: 10px;
 	margin-right: 30px;
 }
+
+.override-selected {
+	background-color: #fefdca;
+}
+
+.footer-override-display {
+	margin-left: 16px;
+	margin-right: 30px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+.footer-override-display li {
+	background-color: rgba(255, 255, 255, 0.75);
+	display: inline-block;
+	margin-right: 10px;
+	padding: 5px;
+}

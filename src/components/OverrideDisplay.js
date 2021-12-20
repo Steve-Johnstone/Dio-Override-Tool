@@ -1,12 +1,27 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import 'bulma/css/bulma.min.css';
-import { capitalise } from '../helpers/capitalise';
+import { capitaliseOverrideName } from '../helpers/capitaliseOverrideName';
 import Header from './Header';
 import Footer from './Footer';
 
-const OverrideDisplay = ({ url, setUrl, selectedOverrides }) => {
+const OverrideDisplay = ({ url, overrideList }) => {
 	const [searchTerm, setSearchTerm] = useState('');
+	const [selectedOverrides, setSelectedOverrides] = useState([]);
+
+	const handleClick = (override, event) => {
+		setSelectedOverrides([...selectedOverrides, override]);
+
+		const item = event.target;
+
+		if (!item.className) {
+			item.className = 'override-selected';
+			item.style.fontWeight = 'bold';
+		} else {
+			item.className = '';
+			item.style.fontWeight = '';
+		}
+	};
 
 	return (
 		<div>
@@ -16,9 +31,14 @@ const OverrideDisplay = ({ url, setUrl, selectedOverrides }) => {
 					<h4 className='title is-4'>All Overrides</h4>
 					<div>
 						<ul className='override-list'>
-							{selectedOverrides.map((a) => {
+							{overrideList.map((override) => {
 								return (
-									<li key={selectedOverrides.indexOf(a)}>{capitalise(a)}</li>
+									<li
+										key={overrideList.indexOf(override)}
+										onClick={(event) => handleClick(override, event)}
+									>
+										{capitaliseOverrideName(override)}
+									</li>
 								);
 							})}
 						</ul>
@@ -26,15 +46,18 @@ const OverrideDisplay = ({ url, setUrl, selectedOverrides }) => {
 				</div>
 				<p>{searchTerm}</p>
 			</section>
-			<Footer url={url} />
+			<Footer
+				url={url}
+				selectedOverrides={selectedOverrides}
+				setSelectedOverrides={setSelectedOverrides}
+			/>
 		</div>
 	);
 };
 
 OverrideDisplay.propTypes = {
-	selectedOverrides: PropTypes.array,
+	overrideList: PropTypes.array,
 	url: PropTypes.string,
-	setUrl: PropTypes.func,
 };
 
 export default OverrideDisplay;
