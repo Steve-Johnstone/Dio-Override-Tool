@@ -15,7 +15,7 @@ describe('App.js', () => {
 		//Check for Title
 		expect(screen.getByText('Dio Override Tool')).toBeInTheDocument();
 
-		//Check for input label
+		//Check for input field
 		expect(screen.getByText('Local URL of the page')).toBeInTheDocument();
 
 		//Check for GO button

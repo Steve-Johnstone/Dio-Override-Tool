@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import 'bulma/css/bulma.min.css';
-import { capitaliseOverrideName } from '../helpers/capitaliseOverrideName';
+import { formatOverrides } from '../helpers/formatOverrides';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -37,7 +37,7 @@ const OverrideDisplay = ({ url, overrideList }) => {
 										key={overrideList.indexOf(override)}
 										onClick={(event) => handleClick(override, event)}
 									>
-										{capitaliseOverrideName(override)}
+										{formatOverrides(override)}
 									</li>
 								);
 							})}

@@ -1,4 +1,4 @@
-export function capitaliseOverrideName(string) {
+export function formatOverrides(string) {
 	const words = string.split('-');
 
 	for (let i = 0; i < words.length; i++) {
