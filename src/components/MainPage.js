@@ -45,6 +45,7 @@ const MainPage = ({ url, setUrl, setOverrideList }) => {
 									setOverrideList(overrides[url]);
 								}}
 								className='button is-info mt-3'
+								name='Go'
 							>
 								<Link style={{ color: 'white' }} to='/overrides'>
 									GO

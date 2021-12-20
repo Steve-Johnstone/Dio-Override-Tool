@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { ImCross } from 'react-icons/im';
 import { IoMdRefresh } from 'react-icons/io';
 import { AiOutlineLink } from 'react-icons/ai';
-import { concatenateUrl } from '../helpers/concatenateUrl';
+import { buildUrl } from '../helpers/buildUrl';
 import 'bulma/css/bulma.min.css';
 
 const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
@@ -12,7 +12,9 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 			<div className='footer-override-display'>
 				<ul>
 					{selectedOverrides.map((override) => {
-						return <li>{override}</li>;
+						return (
+							<li key={selectedOverrides.indexOf(override)}>{override}</li>
+						);
 					})}
 				</ul>
 			</div>
@@ -20,9 +22,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 				<div className='ml-3'>
 					<AiOutlineLink />
 				</div>
-				<div className='p-4'>
-					localhost:8080/{url}override={concatenateUrl(selectedOverrides)}
-				</div>
+				<div className='p-4'>{buildUrl(url, selectedOverrides)}</div>
 			</div>
 			<div className='level-item is-justify-content-space-between ml-5'>
 				<div>
@@ -37,10 +37,14 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 						<ImCross />
 						&nbsp;&nbsp;Clear All
 					</button>
-					<button className='button is-link m-2'>
+					<a
+						className='button is-link m-2'
+						href={buildUrl(url, selectedOverrides)}
+						target='blank'
+					>
 						<IoMdRefresh />
 						&nbsp;&nbsp;Show it
-					</button>
+					</a>
 				</div>
 			</div>
 		</div>
