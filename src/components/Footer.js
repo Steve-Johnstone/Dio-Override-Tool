@@ -7,13 +7,24 @@ import { buildUrl } from '../helpers/buildUrl';
 import 'bulma/css/bulma.min.css';
 
 const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
+	const handleOverrideClick = (clickedOverride) => {
+		setSelectedOverrides(
+			selectedOverrides.filter((override) => override !== clickedOverride)
+		);
+	};
+
 	return (
 		<div className='footer-section'>
 			<div className='footer-override-display'>
-				<ul>
+				<ul className='footer-overrde-list'>
 					{selectedOverrides.map((override) => {
 						return (
-							<li key={selectedOverrides.indexOf(override)}>{override}</li>
+							<li
+								key={selectedOverrides.indexOf(override)}
+								onClick={() => handleOverrideClick(override)}
+							>
+								{override}
+							</li>
 						);
 					})}
 				</ul>
