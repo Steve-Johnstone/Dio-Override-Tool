@@ -16,7 +16,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 	return (
 		<div className='footer-section'>
 			<div className='footer-override-display'>
-				<ul className='footer-overrde-list'>
+				<ul className='footer-override-list'>
 					{selectedOverrides.map((override) => {
 						return (
 							<li

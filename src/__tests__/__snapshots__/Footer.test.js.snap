@@ -8,7 +8,7 @@ exports[`Override Display should display the DOM correctly 1`] = `
     className="footer-override-display"
   >
     <ul
-      className="footer-overrde-list"
+      className="footer-override-list"
     />
   </div>
   <div

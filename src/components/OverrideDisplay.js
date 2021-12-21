@@ -4,6 +4,7 @@ import 'bulma/css/bulma.min.css';
 import { formatOverrides } from '../helpers/formatOverrides';
 import Header from './Header';
 import Footer from './Footer';
+import SearchBar from './SearchBar';
 
 const OverrideDisplay = ({ url, overrideList }) => {
 	const [searchTerm, setSearchTerm] = useState('');
@@ -24,8 +25,14 @@ const OverrideDisplay = ({ url, overrideList }) => {
 	};
 
 	return (
-		<div>
-			<Header setSearchTerm={setSearchTerm} />
+		<div className='override-display-conatiner'>
+			<div className='header'>
+				<div className='level-item is-justify-content-space-between'>
+					<Header />
+					<SearchBar setSearchTerm={setSearchTerm} />
+				</div>
+			</div>
+
 			<section className='section'>
 				<div className='container'>
 					<h4 className='title is-4'>All Overrides</h4>
@@ -44,7 +51,6 @@ const OverrideDisplay = ({ url, overrideList }) => {
 						</ul>
 					</div>
 				</div>
-				<p>{searchTerm}</p>
 			</section>
 			<Footer
 				url={url}
