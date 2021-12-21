@@ -10,17 +10,13 @@ const OverrideDisplay = ({ url, overrideList }) => {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [selectedOverrides, setSelectedOverrides] = useState([]);
 
-	const handleClick = (override, event) => {
-		setSelectedOverrides([...selectedOverrides, override]);
-
-		const item = event.target;
-
-		if (!item.className) {
-			item.className = 'override-selected';
-			item.style.fontWeight = 'bold';
+	const handleClick = (selectedOverride) => {
+		if (!selectedOverrides.includes(selectedOverride)) {
+			setSelectedOverrides([...selectedOverrides, selectedOverride]);
 		} else {
-			item.className = '';
-			item.style.fontWeight = '';
+			setSelectedOverrides(
+				selectedOverrides.filter((override) => override !== selectedOverride)
+			);
 		}
 	};
 
@@ -33,25 +29,29 @@ const OverrideDisplay = ({ url, overrideList }) => {
 				</div>
 			</div>
 
-			<section className='section'>
-				<div className='container'>
-					<h4 className='title is-4'>All Overrides</h4>
-					<div>
-						<ul className='override-list'>
-							{overrideList.map((override) => {
-								return (
-									<li
-										key={overrideList.indexOf(override)}
-										onClick={(event) => handleClick(override, event)}
-									>
-										{formatOverrides(override)}
-									</li>
-								);
-							})}
-						</ul>
-					</div>
+			<div className='container p-3'>
+				<h4 className='title is-4'>All Overrides</h4>
+				<div>
+					<ul className='override-list'>
+						{overrideList.map((override) => {
+							return (
+								<li
+									key={overrideList.indexOf(override)}
+									onClick={() => handleClick(override)}
+									className={
+										selectedOverrides.includes(override)
+											? 'override-selected'
+											: ''
+									}
+								>
+									{formatOverrides(override)}
+								</li>
+							);
+						})}
+					</ul>
 				</div>
-			</section>
+			</div>
+
 			<Footer
 				url={url}
 				selectedOverrides={selectedOverrides}

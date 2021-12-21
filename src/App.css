@@ -4,7 +4,6 @@ body {
 }
 .override-list {
 	height: 600px;
-	width: 80%;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
@@ -68,6 +67,7 @@ body {
 
 .override-selected {
 	background-color: #fefdca;
+	font-weight: bold;
 }
 
 .footer-override-display {

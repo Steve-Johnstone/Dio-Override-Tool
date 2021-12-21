@@ -15,58 +15,56 @@ exports[`App.js should display the DOM correctly 1`] = `
       </p>
     </div>
   </div>
-  <section>
-    <div
-      className="container p-4"
-    >
-      <div>
-        <form
-          className="field py-2"
-        >
-          <div
-            className="control"
-            style={
-              Object {
-                "width": "40%",
-              }
+  <div
+    className="container p-4"
+  >
+    <div>
+      <form
+        className="field py-2"
+      >
+        <div
+          className="control"
+          style={
+            Object {
+              "width": "40%",
             }
+          }
+        >
+          <label
+            className="label"
+            htmlFor="text"
           >
-            <label
-              className="label"
-              htmlFor="text"
-            >
-              Local URL of the page
-            </label>
-            <div>
-              <input
-                className="input is-link level-item"
-                name="url"
-                onChange={[Function]}
-                placeholder="www.url.com"
-                type="text"
-              />
-            </div>
-            <button
-              className="button is-info mt-3"
-              name="Go"
-              onClick={[Function]}
-            >
-              <a
-                href="/overrides"
-                onClick={[Function]}
-                style={
-                  Object {
-                    "color": "white",
-                  }
-                }
-              >
-                GO
-              </a>
-            </button>
+            Local URL of the page
+          </label>
+          <div>
+            <input
+              className="input is-link level-item"
+              name="url"
+              onChange={[Function]}
+              placeholder="www.url.com"
+              type="text"
+            />
           </div>
-        </form>
-      </div>
+          <button
+            className="button is-info mt-3"
+            name="Go"
+            onClick={[Function]}
+          >
+            <a
+              href="/overrides"
+              onClick={[Function]}
+              style={
+                Object {
+                  "color": "white",
+                }
+              }
+            >
+              GO
+            </a>
+          </button>
+        </div>
+      </form>
     </div>
-  </section>
+  </div>
 </div>
 `;

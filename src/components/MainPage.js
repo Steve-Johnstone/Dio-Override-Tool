@@ -24,40 +24,39 @@ const MainPage = ({ url, setUrl, setOverrideList }) => {
 			<div className='header level-item'>
 				<Header />
 			</div>
-			<section>
-				<div className='container p-4'>
-					<div>
-						<form className='field py-2'>
-							<div style={{ width: '40%' }} className='control'>
-								<label htmlFor='text' className='label'>
-									Local URL of the page
-								</label>
-								<div>
-									<input
-										name='url'
-										className='input is-link level-item'
-										placeholder='www.url.com'
-										type='text'
-										onChange={(e) => setUrl(e.target.value)}
-									></input>
-								</div>
-								<button
-									onClick={(e) => {
-										e.preventDefault();
-										setOverrideList(overrides[url]);
-									}}
-									className='button is-info mt-3'
-									name='Go'
-								>
-									<Link style={{ color: 'white' }} to='/overrides'>
-										GO
-									</Link>
-								</button>
+
+			<div className='container p-4'>
+				<div>
+					<form className='field py-2'>
+						<div style={{ width: '40%' }} className='control'>
+							<label htmlFor='text' className='label'>
+								Local URL of the page
+							</label>
+							<div>
+								<input
+									name='url'
+									className='input is-link level-item'
+									placeholder='www.url.com'
+									type='text'
+									onChange={(e) => setUrl(e.target.value)}
+								></input>
 							</div>
-						</form>
-					</div>
+							<button
+								onClick={(e) => {
+									e.preventDefault();
+									setOverrideList(overrides[url]);
+								}}
+								className='button is-info mt-3'
+								name='Go'
+							>
+								<Link style={{ color: 'white' }} to='/overrides'>
+									GO
+								</Link>
+							</button>
+						</div>
+					</form>
 				</div>
-			</section>
+			</div>
 		</div>
 	);
 };
