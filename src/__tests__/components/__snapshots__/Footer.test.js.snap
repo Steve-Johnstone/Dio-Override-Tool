@@ -37,7 +37,7 @@ exports[`Footer component should display the DOM correctly 1`] = `
       </svg>
     </div>
     <div
-      className="p-4"
+      className="p-2"
     >
       localhost:8080/?override=
     </div>
@@ -77,8 +77,9 @@ exports[`Footer component should display the DOM correctly 1`] = `
           Clear All
       </button>
       <a
-        className="button is-link m-2"
+        className="button m-2"
         href="localhost:8080/?override="
+        id="go-button"
         target="blank"
       >
         <svg

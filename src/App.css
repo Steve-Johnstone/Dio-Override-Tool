@@ -64,7 +64,7 @@ body {
 .footer-url-display {
 	background-color: rgba(255, 255, 255, 0.75);
 	padding: 3px;
-	margin: 0px 30px 10px 50px;
+	margin: 0px 32px 10px 50px;
 }
 
 .override-selected {
@@ -100,4 +100,15 @@ body {
 	border: 2px solid black;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.logo {
+	width: 40px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#go-button {
+	color: white;
+	background-color: #026dc5;
 }

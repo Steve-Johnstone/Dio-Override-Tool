@@ -1,10 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header component should display the DOM correctly 1`] = `
-<div>
-  <p
-    className="ml-6"
-  >
+<div
+  className="is-flex is-justify-content-space-between"
+>
+  <img
+    alt="hcom logo"
+    className="logo"
+    src="image/hotelscom-logo.png"
+  />
+  <p>
     Dio Override Tool
   </p>
 </div>

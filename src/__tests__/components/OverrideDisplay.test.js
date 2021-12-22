@@ -5,11 +5,10 @@ import { MemoryRouter } from 'react-router-dom';
 
 describe('OverrideDisplay component', () => {
 	it('should display the DOM correctly', () => {
-		const setUrl = jest.fn();
 		const tree = renderer
 			.create(
 				<MemoryRouter>
-					<OverrideDisplay url='' setUrl={setUrl} overrideList={[]} />
+					<OverrideDisplay url='' overrideList={[]} />
 				</MemoryRouter>
 			)
 			.toJSON();

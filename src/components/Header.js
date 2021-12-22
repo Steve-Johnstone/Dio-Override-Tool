@@ -3,8 +3,13 @@ import 'bulma/css/bulma.min.css';
 
 const Header = () => {
 	return (
-		<div>
-			<p className='ml-6'>Dio Override Tool</p>
+		<div className='is-flex is-justify-content-space-between'>
+			<img
+				className='logo'
+				src='image/hotelscom-logo.png'
+				alt='hcom logo'
+			></img>
+			<p>Dio Override Tool</p>
 		</div>
 	);
 };

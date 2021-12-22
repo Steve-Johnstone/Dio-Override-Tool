@@ -5,12 +5,17 @@ exports[`App component should display the DOM correctly 1`] = `
   className="main-page-container"
 >
   <div
-    className="header level-item"
+    className="header level-item is-justify-content-space-between"
   >
-    <div>
-      <p
-        className="ml-6"
-      >
+    <div
+      className="is-flex is-justify-content-space-between"
+    >
+      <img
+        alt="hcom logo"
+        className="logo"
+        src="image/hotelscom-logo.png"
+      />
+      <p>
         Dio Override Tool
       </p>
     </div>
@@ -47,6 +52,7 @@ exports[`App component should display the DOM correctly 1`] = `
           </div>
           <button
             className="button is-info mt-3"
+            id="go-button"
             name="Go"
             onClick={[Function]}
           >

@@ -21,7 +21,7 @@ const MainPage = ({ url, setUrl, setOverrideList }) => {
 
 	return (
 		<div className='main-page-container'>
-			<div className='header level-item'>
+			<div className='header level-item is-justify-content-space-between'>
 				<Header />
 			</div>
 
@@ -48,6 +48,7 @@ const MainPage = ({ url, setUrl, setOverrideList }) => {
 								}}
 								className='button is-info mt-3'
 								name='Go'
+								id='go-button'
 							>
 								<Link style={{ color: 'white' }} to='/overrides'>
 									GO

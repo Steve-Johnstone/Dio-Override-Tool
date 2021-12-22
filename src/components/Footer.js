@@ -33,7 +33,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 				<div className='ml-3'>
 					<AiOutlineLink />
 				</div>
-				<div className='p-4'>{buildUrl(url, selectedOverrides)}</div>
+				<div className='p-2'>{buildUrl(url, selectedOverrides)}</div>
 			</div>
 			<div className='level-item is-justify-content-space-between ml-5'>
 				<div>
@@ -49,7 +49,8 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 						&nbsp;&nbsp;Clear All
 					</button>
 					<a
-						className='button is-link m-2'
+						id='go-button'
+						className='button m-2'
 						href={buildUrl(url, selectedOverrides)}
 						target='blank'
 					>

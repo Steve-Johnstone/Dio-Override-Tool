@@ -10,10 +10,15 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
     <div
       className="level-item is-justify-content-space-between"
     >
-      <div>
-        <p
-          className="ml-6"
-        >
+      <div
+        className="is-flex is-justify-content-space-between"
+      >
+        <img
+          alt="hcom logo"
+          className="logo"
+          src="image/hotelscom-logo.png"
+        />
+        <p>
           Dio Override Tool
         </p>
       </div>
@@ -110,7 +115,7 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
         </svg>
       </div>
       <div
-        className="p-4"
+        className="p-2"
       >
         localhost:8080/?override=
       </div>
@@ -150,8 +155,9 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
             Clear All
         </button>
         <a
-          className="button is-link m-2"
+          className="button m-2"
           href="localhost:8080/?override="
+          id="go-button"
           target="blank"
         >
           <svg
