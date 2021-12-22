@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Override Display should display the DOM correctly 1`] = `
+exports[`OverrideDisplay component should display the DOM correctly 1`] = `
 <div
   className="override-display-conatiner"
 >
@@ -61,7 +61,7 @@ exports[`Override Display should display the DOM correctly 1`] = `
     </div>
   </div>
   <div
-    className="container p-3"
+    className="container p-5"
   >
     <h4
       className="title is-4"

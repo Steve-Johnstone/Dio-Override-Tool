@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import Footer from '../components/Footer';
+import Footer from '../../components/Footer';
 
-describe('Override Display', () => {
+describe('Footer component', () => {
 	it('should display the DOM correctly', () => {
 		const setSelectedOverrides = jest.fn();
 		const tree = renderer

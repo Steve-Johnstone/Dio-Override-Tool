@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import MainPage from '../components/MainPage';
+import MainPage from '../../components/MainPage';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('Override Display', () => {
+describe('MainPage component', () => {
 	it('should display the DOM correctly', () => {
 		const { setUrl, setOverrideList } = jest.fn();
 

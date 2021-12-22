@@ -1,12 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import Header from '../components/Header';
+import SearchBar from '../../components/SearchBar';
 
-describe('Override Display', () => {
+describe('SearchBar component', () => {
 	it('should display the DOM correctly', () => {
 		const setSearchTerm = jest.fn();
+
 		const tree = renderer
-			.create(<Header setSearchTerm={setSearchTerm} />)
+			.create(<SearchBar setSearchTerm={setSearchTerm} />)
 			.toJSON();
 
 		expect(tree).toMatchSnapshot();

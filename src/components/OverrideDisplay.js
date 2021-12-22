@@ -29,7 +29,7 @@ const OverrideDisplay = ({ url, overrideList }) => {
 				</div>
 			</div>
 
-			<div className='container p-3'>
+			<div className='container p-5'>
 				<h4 className='title is-4'>All Overrides</h4>
 				<div>
 					<ul className='override-list'>

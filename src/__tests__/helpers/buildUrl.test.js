@@ -1,4 +1,4 @@
-import { buildUrl } from '../helpers/buildUrl';
+import { buildUrl } from '../../helpers/buildUrl';
 
 describe('buildUrl function', () => {
 	it.each([

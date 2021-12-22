@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import OverrideDisplay from '../components/OverrideDisplay';
+import OverrideDisplay from '../../components/OverrideDisplay';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('Override Display', () => {
+describe('OverrideDisplay component', () => {
 	it('should display the DOM correctly', () => {
 		const setUrl = jest.fn();
 		const tree = renderer

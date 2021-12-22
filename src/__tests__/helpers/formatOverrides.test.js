@@ -1,4 +1,4 @@
-import { formatOverrides } from '../helpers/formatOverrides';
+import { formatOverrides } from '../../helpers/formatOverrides';
 
 describe('formatOverrides function', () => {
 	it.each([
