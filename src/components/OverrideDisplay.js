@@ -5,10 +5,11 @@ import { formatOverrides } from '../helpers/formatOverrides';
 import Header from './Header';
 import Footer from './Footer';
 import SearchBar from './SearchBar';
+import { filterOverrides } from '../helpers/filterOverrides';
 
 const OverrideDisplay = ({ url, overrideList }) => {
-	const [searchTerm, setSearchTerm] = useState('');
 	const [selectedOverrides, setSelectedOverrides] = useState([]);
+	const [searchTerm, setSearchTerm] = useState('');
 
 	const handleClick = (selectedOverride) => {
 		if (!selectedOverrides.includes(selectedOverride)) {
@@ -33,21 +34,23 @@ const OverrideDisplay = ({ url, overrideList }) => {
 				<h4 className='title is-4'>All Overrides</h4>
 				<div>
 					<ul className='override-list'>
-						{overrideList.map((override) => {
-							return (
-								<li
-									key={overrideList.indexOf(override)}
-									onClick={() => handleClick(override)}
-									className={
-										selectedOverrides.includes(override)
-											? 'override-selected'
-											: ''
-									}
-								>
-									{formatOverrides(override)}
-								</li>
-							);
-						})}
+						{overrideList
+							.filter((override) => filterOverrides(override, searchTerm))
+							.map((override) => {
+								return (
+									<li
+										key={overrideList.indexOf(override)}
+										onClick={() => handleClick(override)}
+										className={
+											selectedOverrides.includes(override)
+												? 'override-selected'
+												: ''
+										}
+									>
+										{formatOverrides(override)}
+									</li>
+								);
+							})}
 					</ul>
 				</div>
 			</div>
