@@ -7,6 +7,7 @@ import 'bulma/css/bulma.min.css';
 
 const MainPage = ({ url, setUrl, setOverrideList }) => {
 	const [overrides, setOverrides] = useState([]);
+	const [error, setError] = useState('');
 
 	useEffect(() => {
 		const axiosPosts = async () => {
@@ -18,6 +19,19 @@ const MainPage = ({ url, setUrl, setOverrideList }) => {
 		};
 		axiosPosts();
 	}, []);
+
+	const handleClick = (e) => {
+		e.preventDefault();
+
+		if (overrides.length === 0) {
+			return setError('ERROR: no connection to the host server.');
+		}
+
+		if (!overrides[url]) {
+			return setError('ERROR: no overrides found for provided URL.');
+		}
+		setOverrideList(overrides[url]);
+	};
 
 	return (
 		<div className='main-page-container'>
@@ -42,11 +56,8 @@ const MainPage = ({ url, setUrl, setOverrideList }) => {
 								></input>
 							</div>
 							<button
-								onClick={(e) => {
-									e.preventDefault();
-									setOverrideList(overrides[url]);
-								}}
-								className='button is-info mt-3'
+								onClick={(e) => handleClick(e)}
+								className='button mt-4'
 								name='Go'
 								id='go-button'
 							>
@@ -54,6 +65,11 @@ const MainPage = ({ url, setUrl, setOverrideList }) => {
 									GO
 								</Link>
 							</button>
+							<div
+								className={error ? 'message is-danger error-display mt-5' : ''}
+							>
+								<div className={error ? 'message-body' : ''}>{error}</div>
+							</div>
 						</div>
 					</form>
 				</div>
