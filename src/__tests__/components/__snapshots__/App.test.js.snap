@@ -51,7 +51,7 @@ exports[`App component should display the DOM correctly 1`] = `
             />
           </div>
           <button
-            className="button is-info mt-3"
+            className="button mt-4"
             id="go-button"
             name="Go"
             onClick={[Function]}
@@ -68,6 +68,15 @@ exports[`App component should display the DOM correctly 1`] = `
               GO
             </a>
           </button>
+          <div
+            className=""
+          >
+            <div
+              className=""
+            >
+              
+            </div>
+          </div>
         </div>
       </form>
     </div>
