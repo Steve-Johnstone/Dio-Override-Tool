@@ -1,67 +1,47 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import OverrideDisplay from '../../components/OverrideDisplay';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('OverrideDisplay component', () => {
+	const component = (
+		<MemoryRouter>
+			<OverrideDisplay
+				url=''
+				overrideList={[
+					'Australian Print Receipt',
+					'Consolidated Amenities',
+					'Event Widget',
+					'Insurance Details',
+					'Multi Room',
+					'No Cancel Button',
+					'No Guest Reviews',
+					'United Only Points',
+				]}
+			/>
+		</MemoryRouter>
+	);
+
 	it('should display the DOM correctly', () => {
-		const tree = renderer
-			.create(
-				<MemoryRouter>
-					<OverrideDisplay url='' overrideList={[]} />
-				</MemoryRouter>
-			)
-			.toJSON();
+		const tree = renderer.create(component).toJSON();
 
 		expect(tree).toMatchSnapshot();
 	});
 
-	describe('logic', () => {
-		it.each([
-			[
-				[
-					'duplicate-booking',
-					'hotel-not-available',
-					'inventory-error',
-					'one-total-price-with-mandatory-fee-breakdown',
-					'price-decrease',
-					'price-increase',
-					'rtl',
-					'is-info',
-				],
-				'inventory-error',
-				8,
-			],
-			[
-				[
-					'amex-brasil-refund-schedule',
-					'covid-refund-latency',
-					'hpp-adyen-multiple-emails',
-					'hpp-adyen',
-					'multi-room',
-					'multiple-emails',
-					'partner-loyalty',
-				],
-				'multiple-emails',
-				7,
-			],
-		])(
-			'should display a list of overrides, when they are passed in from the parent component',
-			(overrideList, override, size) => {
-				const { container } = render(
-					<MemoryRouter>
-						<OverrideDisplay overrideList={overrideList} />
-					</MemoryRouter>
-				);
+	it('should render the component correctly, based on the props passed to it', () => {
+		render(component);
 
-				//Check that list is created
-				expect(container.getElementsByClassName('override-list').length).toBe(
-					1
-				);
+		//Check that the overridelist is rendered
+		const list = screen.getByTestId('override-list');
+		expect(list).toBeInTheDocument();
 
-				// //Check that list contains one of the overrides provided
-				// expect(container.getByText(override)).toBeInTheDocument();
-			}
-		);
+		//Check that the list contains 8 items
+		const { getAllByRole } = within(list);
+		const items = getAllByRole('listitem');
+		expect(items.length).toBe(8);
+
+		//Check that list includes the selected overrides
+		expect(screen.getByText('Australian Print Receipt')).toBeInTheDocument();
+		expect(screen.getByText('No Cancel Button')).toBeInTheDocument();
 	});
 });

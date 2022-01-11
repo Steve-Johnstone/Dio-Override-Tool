@@ -8,6 +8,7 @@ const Header = () => {
 				className='logo'
 				src='image/hotelscom-logo.png'
 				alt='hcom logo'
+				data-testid='logo'
 			></img>
 			<p>Dio Override Tool</p>
 		</div>

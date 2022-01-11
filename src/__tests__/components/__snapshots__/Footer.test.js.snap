@@ -9,7 +9,20 @@ exports[`Footer component should display the DOM correctly 1`] = `
   >
     <ul
       className="footer-override-list"
-    />
+    >
+      <li
+        data-testid="list-item"
+        onClick={[Function]}
+      >
+        Already Charged Box
+      </li>
+      <li
+        data-testid="list-item"
+        onClick={[Function]}
+      >
+        No Amenities
+      </li>
+    </ul>
   </div>
   <div
     className="footer-url-display ml-5 level-item is-justify-content-flex-start"
@@ -38,8 +51,9 @@ exports[`Footer component should display the DOM correctly 1`] = `
     </div>
     <div
       className="p-2"
+      data-testid="url-display"
     >
-      localhost:8080/?override=
+      localhost:8080/cop/bookingdetails/bookingdetailspage?override=Already Charged Box,No Amenities
     </div>
   </div>
   <div
@@ -78,7 +92,7 @@ exports[`Footer component should display the DOM correctly 1`] = `
       </button>
       <a
         className="button m-2"
-        href="localhost:8080/?override="
+        href="localhost:8080/cop/bookingdetails/bookingdetailspage?override=Already Charged Box,No Amenities"
         id="go-button"
         target="blank"
       >

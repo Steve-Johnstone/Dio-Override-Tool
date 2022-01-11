@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MainPage component should display the DOM correctly 1`] = `
+exports[`OpeningScreen component should display the DOM correctly 1`] = `
 <div
   className="main-page-container"
 >
@@ -13,6 +13,7 @@ exports[`MainPage component should display the DOM correctly 1`] = `
       <img
         alt="hcom logo"
         className="logo"
+        data-testid="logo"
         src="image/hotelscom-logo.png"
       />
       <p>

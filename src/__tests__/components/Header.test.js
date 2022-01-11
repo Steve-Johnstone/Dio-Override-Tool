@@ -8,4 +8,14 @@ describe('Header component', () => {
 
 		expect(tree).toMatchSnapshot();
 	});
+
+	it('should render the component correctly', () => {
+		render(<Header />);
+
+		//Check that the log is rendered
+		expect(screen.getByTestId('logo')).toBeInTheDocument();
+
+		//Check that title is rendered
+		expect(screen.getByText('Dio Override Tool')).toBeInTheDocument();
+	});
 });

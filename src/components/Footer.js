@@ -22,6 +22,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 							<li
 								key={selectedOverrides.indexOf(override)}
 								onClick={() => handleClick(override)}
+								data-testid='list-item'
 							>
 								{override}
 							</li>
@@ -33,7 +34,9 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 				<div className='ml-3'>
 					<AiOutlineLink />
 				</div>
-				<div className='p-2'>{buildUrl(url, selectedOverrides)}</div>
+				<div data-testid='url-display' className='p-2'>
+					{buildUrl(url, selectedOverrides)}
+				</div>
 			</div>
 			<div className='level-item is-justify-content-space-between ml-5'>
 				<div>

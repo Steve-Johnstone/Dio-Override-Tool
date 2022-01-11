@@ -13,6 +13,7 @@ exports[`App component should display the DOM correctly 1`] = `
       <img
         alt="hcom logo"
         className="logo"
+        data-testid="logo"
         src="image/hotelscom-logo.png"
       />
       <p>

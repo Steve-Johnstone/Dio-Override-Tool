@@ -11,6 +11,7 @@ exports[`SearchBar component should display the DOM correctly 1`] = `
     >
       <div
         className="search-icon"
+        data-testid="search-icon"
       >
         <svg
           fill="currentColor"

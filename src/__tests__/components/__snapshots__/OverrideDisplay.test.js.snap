@@ -16,6 +16,7 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
         <img
           alt="hcom logo"
           className="logo"
+          data-testid="logo"
           src="image/hotelscom-logo.png"
         />
         <p>
@@ -32,6 +33,7 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
           >
             <div
               className="search-icon"
+              data-testid="search-icon"
             >
               <svg
                 fill="currentColor"
@@ -76,7 +78,57 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
     <div>
       <ul
         className="override-list"
-      />
+        data-testid="override-list"
+      >
+        <li
+          className=""
+          onClick={[Function]}
+        >
+          Australian Print Receipt
+        </li>
+        <li
+          className=""
+          onClick={[Function]}
+        >
+          Consolidated Amenities
+        </li>
+        <li
+          className=""
+          onClick={[Function]}
+        >
+          Event Widget
+        </li>
+        <li
+          className=""
+          onClick={[Function]}
+        >
+          Insurance Details
+        </li>
+        <li
+          className=""
+          onClick={[Function]}
+        >
+          Multi Room
+        </li>
+        <li
+          className=""
+          onClick={[Function]}
+        >
+          No Cancel Button
+        </li>
+        <li
+          className=""
+          onClick={[Function]}
+        >
+          No Guest Reviews
+        </li>
+        <li
+          className=""
+          onClick={[Function]}
+        >
+          United Only Points
+        </li>
+      </ul>
     </div>
   </div>
   <div
@@ -116,6 +168,7 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
       </div>
       <div
         className="p-2"
+        data-testid="url-display"
       >
         localhost:8080/?override=
       </div>

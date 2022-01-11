@@ -8,7 +8,7 @@ const SearchBar = ({ setSearchTerm }) => {
 		<div>
 			<form id='search-bar-container' className='field py-5'>
 				<div className='search-bar'>
-					<div className='search-icon'>
+					<div className='search-icon' data-testid='search-icon'>
 						<AiOutlineSearch />
 					</div>
 					<input

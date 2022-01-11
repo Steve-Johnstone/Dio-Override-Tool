@@ -5,7 +5,7 @@ import axios from 'axios';
 import Header from './Header';
 import 'bulma/css/bulma.min.css';
 
-const MainPage = ({ url, setUrl, setOverrideList }) => {
+const OpeningScreen = ({ url, setUrl, setOverrideList }) => {
 	const [overrides, setOverrides] = useState([]);
 	const [error, setError] = useState('');
 
@@ -78,10 +78,10 @@ const MainPage = ({ url, setUrl, setOverrideList }) => {
 	);
 };
 
-MainPage.propTypes = {
+OpeningScreen.propTypes = {
 	url: PropTypes.string,
 	setUrl: PropTypes.func,
 	setOverrideList: PropTypes.func,
 };
 
-export default MainPage;
+export default OpeningScreen;
