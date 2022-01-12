@@ -34,7 +34,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 				<div className='ml-3'>
 					<AiOutlineLink />
 				</div>
-				<div data-testid='url-display' className='p-2'>
+				<div id='url-display' data-testid='url-display' className='p-2'>
 					{buildUrl(url, selectedOverrides)}
 				</div>
 			</div>

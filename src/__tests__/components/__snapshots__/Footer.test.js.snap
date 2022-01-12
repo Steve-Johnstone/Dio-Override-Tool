@@ -52,6 +52,7 @@ exports[`Footer component should display the DOM correctly 1`] = `
     <div
       className="p-2"
       data-testid="url-display"
+      id="url-display"
     >
       localhost:8080/cop/bookingdetails/bookingdetailspage?override=Already Charged Box,No Amenities
     </div>

@@ -35,7 +35,7 @@ exports[`SearchBar component should display the DOM correctly 1`] = `
       <input
         className="input"
         id="search-input-field"
-        name="search item"
+        name="search-item"
         onChange={[Function]}
         placeholder="Start typing to filter..."
         type="text"

@@ -12,7 +12,7 @@ const SearchBar = ({ setSearchTerm }) => {
 						<AiOutlineSearch />
 					</div>
 					<input
-						name='search item'
+						name='search-item'
 						className='input'
 						id='search-input-field'
 						placeholder='Start typing to filter...'
