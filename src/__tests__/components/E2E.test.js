@@ -1,26 +1,30 @@
 import puppeteer from 'puppeteer';
 
-describe('E2E tests', () => {
+describe('E2E tests for happy path', () => {
 	const app = 'http://localhost:3000/';
 	let browser;
 	let page;
 
-	it('should direct the user to the Main Page when a valid url is entered and display the revelevant list of overrides', async () => {
-		//Open browser and open app in new page
+	//Open app before each test, enter a valid url and click on the 'GO' button.
+	beforeEach(async () => {
 		browser = await puppeteer.launch();
 		page = await browser.newPage();
 		await page.goto(app);
 
-		//Input a valid url
 		await page.click('input[name="url"]');
 		await page.type(
 			'input[name="url"]',
 			'cop/bookingdetails/bookingdetailspage'
 		);
-
-		//Click on the 'GO' button
 		await page.click('button[name="Go"]');
+	});
 
+	//Close browser after each test
+	afterEach(async () => {
+		await browser.close();
+	});
+
+	it('should direct the user to the Main Page and display the revelevant list of overrides', async () => {
 		//Expect heading of main page to be displayed
 		const heading = await page.$eval('h4', (el) => el.textContent);
 		expect(heading).toBe('All Overrides');
@@ -34,30 +38,12 @@ describe('E2E tests', () => {
 		expect(url).toBe(
 			'localhost:8080/cop/bookingdetails/bookingdetailspage?override='
 		);
-
-		//Close browser
-		await browser.close();
 	});
 
-	it('should filter the list of overrides correctly, based on the search term entered, regardless of casing used', async () => {
-		//Open browser and open app in new page
-		browser = await puppeteer.launch();
-		page = await browser.newPage();
-		await page.goto(app);
-
-		//Input a valid url
-		await page.click('input[name="url"]');
-		await page.type(
-			'input[name="url"]',
-			'cop/bookingdetails/bookingdetailspage'
-		);
-
-		//Click on the 'GO' button
-		await page.click('button[name="Go"]');
-
+	it('should filter the overrides based on the search term entered, regardless of the casing used', async () => {
 		//Type an override name into the search bar
-		await page.click('input[name="search-item"]');
-		await page.type('input[name="search-item"]', 'resend');
+		await page.click('input');
+		await page.type('input', 'resend');
 
 		//Expect the override list to contain only 2 overrides
 		const list = await page.$$('ul');
@@ -66,62 +52,87 @@ describe('E2E tests', () => {
 		//Expect the first override dispayed to be 'No Resend Email'
 		const item = await page.$eval('li', (el) => el.textContent);
 		expect(item).toBe('No Resend Email');
-
-		//Close browser
-		await browser.close();
 	});
 
 	it('should still display the relevant overrides, even when the search term is mis-spelled', async () => {
-		//Open browser and open app in new page
-		browser = await puppeteer.launch();
-		page = await browser.newPage();
-		await page.goto(app);
-
-		//Input a valid url
-		await page.click('input[name="url"]');
-		await page.type('input[name="url"]', 'cop/confirmation/confirmation');
-
-		//Click on the 'GO' button
-		await page.click('button[name="Go"]');
-
 		//Type an override name into the search bar
-		await page.click('input[name="search-item"]');
-		await page.type('input[name="search-item"]', 'arc rental');
+		await page.click('input');
+		await page.type('input', 'Nilstallments');
 
 		//Expect the override dispayed to be 'Car Rental'
 		const item = await page.$eval('li', (el) => el.textContent);
-		expect(item).toBe('Car Rental');
-
-		//Close browser
-		await browser.close();
+		expect(item).toBe('Installments');
 	});
 
-	// it('should add overrides to the list of selected overrides in the footer, when they are clicked', async () => {
-	// 	//Open browser and open app in new page
-	// 	browser = await puppeteer.launch();
-	// 	page = await browser.newPage();
-	// 	await page.goto(app);
+	it('should add overrides to the list of selected overrides in the footer, when they are clicked and also add them to the url', async () => {
+		//Click on the 8th override in the list ('Change Redirect')
+		await page.click('.override-list > li:nth-child(8)');
 
-	// 	//Input a valid url
-	// 	await page.click('input[name="url"]');
-	// 	await page.type('input[name="url"]', 'cop/confirmation/confirmation');
+		//Expect the override to be dispayed in the list of selected overrides in the footer
+		const footerList = await page.$eval(
+			'.footer-override-list',
+			(el) => el.textContent
+		);
+		expect(footerList).toBe('change-redirect');
 
-	// 	//Click on the 'GO' button
-	// 	await page.click('button[name="Go"]');
+		//Expect the override to be added to the url displayed in the footer
+		const url = await page.$eval('#url-display', (el) => el.textContent);
+		expect(url).toBe(
+			'localhost:8080/cop/bookingdetails/bookingdetailspage?override=change-redirect'
+		);
+	});
+	it('should remove overrides from the list of selected overrides in the footer when they are clicked again and also remove them from the url', async () => {
+		//Click on the 5th override in the list twice ('Australian Print Receipt')
+		await page.click('.override-list > li:nth-child(5)');
+		await page.click('.override-list > li:nth-child(5)');
 
-	// 	//Click on an override from the override list
-	// 	await page.click('input[name="search-item"]');
-	// 	await page.type('input[name="search-item"]', 'arc rental');
+		//Expect the override NOT to be dispayed in the list of selected overrides in the footer
+		const footerList = await page.$eval(
+			'.footer-override-list',
+			(el) => el.textContent
+		);
+		expect(footerList).toBe('');
 
-	// 	//Expect the override to be dispayed in the list of selected overrides in the footer
-	// 	let item = await page.$eval('li', (el) => el.textContent);
-	// 	expect(item).toBe('Car Rental');
+		//Expect the override to be removed from the url displayed in the footer
+		const url = await page.$eval('#url-display', (el) => el.textContent);
+		expect(url).toBe(
+			'localhost:8080/cop/bookingdetails/bookingdetailspage?override='
+		);
+	});
+	it('should clear all the overrides from the selected overrides list in the footer when "Clear All" is clicked and also remove them from the url', async () => {
+		//Click on the 5th and 14th overrides in the list ('Australian Print Receipt', 'Event Widget)
+		await page.click('.override-list > li:nth-child(5)');
+		await page.click('.override-list > li:nth-child(14)');
 
-	// 	//Expect the override to be added to the url displayed in the footer
-	// 	let item = await page.$eval('li', (el) => el.textContent);
-	// 	expect(item).toBe('Car Rental');
+		//Expect all the overrides to be dispayed in the list of selected overrides in the footer, in kebab casing
+		const item1 = await page.$eval(
+			'.footer-override-list > li:nth-child(1)',
+			(el) => el.textContent
+		);
+		expect(item1).toBe('australian-print-receipt');
 
-	// 	//Close browser
-	// 	await browser.close();
-	// });
+		const item2 = await page.$eval(
+			'.footer-override-list > li:nth-child(2)',
+			(el) => el.textContent
+		);
+		expect(item2).toBe('event-widget');
+
+		//Click on the 'Clear All' button
+		await page.click('button[name="clear-all"]');
+
+		//Expect list of selected overrides to now be empty
+		const footerList = await page.$eval(
+			'.footer-override-list',
+			(el) => el.textContent
+		);
+		expect(footerList).toBe('');
+
+		//Expect the overrides to be present in the url displayed in the footer, in the order in which they were added
+		const url = await page.$eval('#url-display', (el) => el.textContent);
+		expect(url).toBe(
+			'localhost:8080/cop/bookingdetails/bookingdetailspage?override='
+		);
+	});
+	xit('should open a new tab with the dynamically constructed url, when the "Show It" button is clicked', async () => {});
+	xit('should remove an override from the list of selected overrides, as well as the url, when an override is clicked in the selected list', async () => {});
 });

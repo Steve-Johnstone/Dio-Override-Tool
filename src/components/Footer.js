@@ -45,6 +45,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 				</div>
 				<div className='mr-5'>
 					<button
+						name='clear-all'
 						className='button is-white m-2'
 						onClick={() => setSelectedOverrides([])}
 					>

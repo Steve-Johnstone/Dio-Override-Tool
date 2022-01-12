@@ -185,6 +185,7 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
       >
         <button
           className="button is-white m-2"
+          name="clear-all"
           onClick={[Function]}
         >
           <svg
