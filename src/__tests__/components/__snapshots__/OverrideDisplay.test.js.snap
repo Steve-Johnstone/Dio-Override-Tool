@@ -213,6 +213,7 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
           className="button m-2"
           href="localhost:8080/?override="
           id="go-button"
+          name="show-it"
           target="blank"
         >
           <svg

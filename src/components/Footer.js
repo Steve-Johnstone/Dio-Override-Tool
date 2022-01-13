@@ -53,6 +53,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 						&nbsp;&nbsp;Clear All
 					</button>
 					<a
+						name='show-it'
 						id='go-button'
 						className='button m-2'
 						href={buildUrl(url, selectedOverrides)}

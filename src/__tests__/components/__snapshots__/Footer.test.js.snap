@@ -96,6 +96,7 @@ exports[`Footer component should display the DOM correctly 1`] = `
         className="button m-2"
         href="localhost:8080/cop/bookingdetails/bookingdetailspage?override=Already Charged Box,No Amenities"
         id="go-button"
+        name="show-it"
         target="blank"
       >
         <svg

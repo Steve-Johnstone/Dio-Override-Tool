@@ -64,7 +64,7 @@ describe('E2E tests for happy path', () => {
 		expect(item).toBe('Installments');
 	});
 
-	it('should add overrides to the list of selected overrides in the footer, when they are clicked and also add them to the url', async () => {
+	it('should add an override to the selected overrides when it is clicked and also to the url', async () => {
 		//Click on the 8th override in the list ('Change Redirect')
 		await page.click('.override-list > li:nth-child(8)');
 
@@ -81,6 +81,7 @@ describe('E2E tests for happy path', () => {
 			'localhost:8080/cop/bookingdetails/bookingdetailspage?override=change-redirect'
 		);
 	});
+
 	it('should remove overrides from the list of selected overrides in the footer when they are clicked again and also remove them from the url', async () => {
 		//Click on the 5th override in the list twice ('Australian Print Receipt')
 		await page.click('.override-list > li:nth-child(5)');
@@ -133,6 +134,49 @@ describe('E2E tests for happy path', () => {
 			'localhost:8080/cop/bookingdetails/bookingdetailspage?override='
 		);
 	});
-	xit('should open a new tab with the dynamically constructed url, when the "Show It" button is clicked', async () => {});
-	xit('should remove an override from the list of selected overrides, as well as the url, when an override is clicked in the selected list', async () => {});
+
+	it('should remove an override from the list of selected overrides, as well as the url, when an override is clicked in the selected list', async () => {
+		//Click on an override in the list of overrides ('homeaway')
+		await page.click('.override-list > li:nth-child(23)');
+
+		//Expect the override to be in the list of selected overrides in the footer
+		const override = await page.$eval(
+			'.footer-override-list',
+			(el) => el.textContent
+		);
+		expect(override).toBe('homeaway');
+
+		//Expect the override to be in the url displayed in the footer
+		let url = await page.$eval('#url-display', (el) => el.textContent);
+		expect(url).toBe(
+			'localhost:8080/cop/bookingdetails/bookingdetailspage?override=homeaway'
+		);
+
+		//Click on the override from the list of selected overrides in the footer
+		await page.click('.footer-override-list > li:nth-child(1)');
+
+		//Expect the override NOT to be in the list of selected overrides
+		const footerList = await page.$eval(
+			'.footer-override-list',
+			(el) => el.textContent
+		);
+		expect(footerList).toBe('');
+
+		//Expect the override NOT to be in the url
+		url = await page.$eval('#url-display', (el) => el.textContent);
+		expect(url).toBe(
+			'localhost:8080/cop/bookingdetails/bookingdetailspage?override='
+		);
+	});
+
+	xit('should open a new tab with the dynamically constructed url, when the "Show It" button is clicked', async () => {
+		//Click on the some overrides from the list ('Insurance Details', 'Multi Room)
+		await page.click('.override-list > li:nth-child(26)');
+		await page.click('.override-list > li:nth-child(28)');
+
+		//Click on the 'Show it' button
+		await page.click('button[name="show-all"]');
+
+		//Expect
+	});
 });
