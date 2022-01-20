@@ -31,16 +31,16 @@ describe('OverrideDisplay component', () => {
 	it('should render the component correctly, based on the props passed to it', () => {
 		render(component);
 
-		//Check that the overridelist is rendered
+		//Expect the overridelist to be rendered
 		const list = screen.getByTestId('override-list');
 		expect(list).toBeInTheDocument();
 
-		//Check that the list contains 8 items
+		//Expect the list to contain 8 items
 		const { getAllByRole } = within(list);
 		const items = getAllByRole('listitem');
 		expect(items.length).toBe(8);
 
-		//Check that list includes the selected overrides
+		//Expect the list to include the selected overrides
 		expect(screen.getByText('Australian Print Receipt')).toBeInTheDocument();
 		expect(screen.getByText('No Cancel Button')).toBeInTheDocument();
 	});

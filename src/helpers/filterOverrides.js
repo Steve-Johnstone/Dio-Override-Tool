@@ -1,17 +1,17 @@
 function checkName(name, str) {
-	let pattern = str
+	const pattern = str
 		.split('')
 		.map((x) => {
 			return `(?=.*${x})`;
 		})
 		.join('');
-	let regex = new RegExp(`${pattern}`, 'g');
+	const regex = new RegExp(`${pattern}`, 'g');
 	return name.match(regex);
 }
 
 export function filterOverrides(override, searchTerm) {
-	let searchString = searchTerm.replaceAll(' ', '').toLowerCase();
-	let overrideString = override.replaceAll('-', '');
+	const searchString = searchTerm.replaceAll(' ', '').toLowerCase();
+	const overrideString = override.replaceAll('-', '');
 
 	if (
 		overrideString.includes(searchString) ||

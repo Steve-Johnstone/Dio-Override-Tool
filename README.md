@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a front-end testing tool, which allows developers to visualise the list of overrides which are availalbe for a given page of the Hotels.com website. These
+This is a front-end testing tool, which allows developers to visualise the list of overrides which are availalbe for a given page of the *Hotels.com* website. These
 overrides are essentially mock JSON files, which allow you to replicate certain back-end conditions, whilst testing out front-end changes.  This application can run
 on any browser or operation system. 
 
@@ -28,9 +28,9 @@ In order to run this application, simply enter the command:
 
 #### `npm start`
 
-This will start the React server running on [http://localhost:3000](http://localhost:3000).
+This will start the React server on [http://localhost:3000](http://localhost:3000).
 
-## Running the Test Suite
+## Test Suite
 
 This application contains a wide-ranging test suite, including snapshot tests, UI tests, unit tests and automated E2E testing.  In order
 to run the test suite, simply enter the command:

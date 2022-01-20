@@ -14,10 +14,10 @@ describe('SearchBar component', () => {
 	it('should render the component correctly, based on the props passed to it', () => {
 		render(component);
 
-		//Check that icon is displayed
+		//Expect the icon to be displayed
 		expect(screen.getByTestId('search-icon')).toBeInTheDocument();
 
-		//Check that the input field is rendered
+		//Expect the input field to be displayed
 		expect(screen.getByRole('textbox')).toBeInTheDocument();
 	});
 });

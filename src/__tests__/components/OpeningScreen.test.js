@@ -20,10 +20,10 @@ describe('OpeningScreen component', () => {
 	it('should render the opening screen correctly', () => {
 		render(component);
 
-		//Check for input field
+		//Expect the input field to be displayed
 		expect(screen.getByText('Local URL of the page')).toBeInTheDocument();
 
-		//Check for GO button
+		//Expect the 'Go' button to be rendered
 		expect(screen.getByRole('button', { name: /Go/i })).toBeInTheDocument();
 	});
 });

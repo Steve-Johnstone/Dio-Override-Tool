@@ -12,10 +12,10 @@ describe('Header component', () => {
 	it('should render the component correctly', () => {
 		render(<Header />);
 
-		//Check that the log is rendered
+		//Expect the logo to be displayed
 		expect(screen.getByTestId('logo')).toBeInTheDocument();
 
-		//Check that title is rendered
+		//Expect the title to be displayed
 		expect(screen.getByText('Dio Override Tool')).toBeInTheDocument();
 	});
 });
