@@ -26,6 +26,8 @@ exports[`Footer component should display the DOM correctly 1`] = `
   </div>
   <div
     className="footer-url-display ml-5 level-item is-justify-content-flex-start"
+    id="url-display-box"
+    onClick={[Function]}
   >
     <div
       className="ml-3"
@@ -54,7 +56,14 @@ exports[`Footer component should display the DOM correctly 1`] = `
       data-testid="url-display"
       id="url-display"
     >
-      localhost:8080/cop/bookingdetails/bookingdetailspage?override=Already Charged Box,No Amenities
+      http://localhost:8080/cop/bookingDetails/bookingDetailsPage?override=Already Charged Box,No Amenities
+    </div>
+  </div>
+  <div
+    className=""
+  >
+    <div>
+      
     </div>
   </div>
   <div
@@ -94,7 +103,7 @@ exports[`Footer component should display the DOM correctly 1`] = `
       </button>
       <a
         className="button m-2"
-        href="localhost:8080/cop/bookingdetails/bookingdetailspage?override=Already Charged Box,No Amenities"
+        href="http://localhost:8080/cop/bookingDetails/bookingDetailsPage?override=Already Charged Box,No Amenities"
         id="go-button"
         name="show-it"
         target="blank"

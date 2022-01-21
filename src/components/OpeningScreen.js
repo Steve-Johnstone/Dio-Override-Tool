@@ -65,9 +65,7 @@ const OpeningScreen = ({ url, setUrl, setOverrideList }) => {
 									GO
 								</Link>
 							</button>
-							<div
-								className={error ? 'message is-danger error-display mt-5' : ''}
-							>
+							<div className={error ? 'message is-danger mt-5' : ''}>
 								<div className={error ? 'message-body' : ''}>{error}</div>
 							</div>
 						</div>

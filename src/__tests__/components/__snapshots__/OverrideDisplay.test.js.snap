@@ -143,6 +143,8 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
     </div>
     <div
       className="footer-url-display ml-5 level-item is-justify-content-flex-start"
+      id="url-display-box"
+      onClick={[Function]}
     >
       <div
         className="ml-3"
@@ -171,7 +173,14 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
         data-testid="url-display"
         id="url-display"
       >
-        localhost:8080/?override=
+        http://localhost:8080/?override=
+      </div>
+    </div>
+    <div
+      className=""
+    >
+      <div>
+        
       </div>
     </div>
     <div
@@ -211,7 +220,7 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
         </button>
         <a
           className="button m-2"
-          href="localhost:8080/?override="
+          href="http://localhost:8080/?override="
           id="go-button"
           name="show-it"
           target="blank"

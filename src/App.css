@@ -65,6 +65,7 @@ body {
 	background-color: rgba(255, 255, 255, 0.75);
 	padding: 3px;
 	margin: 0px 32px 10px 50px;
+	cursor: pointer;
 }
 
 .override-selected {
@@ -111,4 +112,9 @@ body {
 #go-button {
 	color: white;
 	background-color: #026dc5;
+}
+
+.url-copied {
+	margin: 20px 0px 0px 25px;
+	color: #42ba96;
 }

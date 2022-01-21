@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { ImCross } from 'react-icons/im';
 import { IoMdRefresh } from 'react-icons/io';
@@ -7,10 +7,23 @@ import { buildUrl } from '../helpers/buildUrl';
 import 'bulma/css/bulma.min.css';
 
 const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
+	const [urlCopied, setUrlCopied] = useState('');
+
 	const handleClick = (clickedOverride) => {
 		setSelectedOverrides(
 			selectedOverrides.filter((override) => override !== clickedOverride)
 		);
+	};
+
+	const copyToClipboard = (id) => {
+		setUrlCopied('');
+		let r = document.createRange();
+		r.selectNode(document.getElementById(id));
+		window.getSelection().removeAllRanges();
+		window.getSelection().addRange(r);
+		document.execCommand('copy');
+		window.getSelection().removeAllRanges();
+		setUrlCopied('URL copied to clipboard!');
 	};
 
 	return (
@@ -30,13 +43,20 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 					})}
 				</ul>
 			</div>
-			<div className='footer-url-display ml-5 level-item is-justify-content-flex-start'>
+			<div
+				className='footer-url-display ml-5 level-item is-justify-content-flex-start'
+				onClick={() => copyToClipboard('url-display-box')}
+				id='url-display-box'
+			>
 				<div className='ml-3'>
 					<AiOutlineLink />
 				</div>
 				<div id='url-display' data-testid='url-display' className='p-2'>
 					{buildUrl(url, selectedOverrides)}
 				</div>
+			</div>
+			<div className={urlCopied ? 'url-copied' : ''}>
+				<div>{urlCopied}</div>
 			</div>
 			<div className='level-item is-justify-content-space-between ml-5'>
 				<div>
