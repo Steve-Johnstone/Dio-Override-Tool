@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 
-describe('E2E tests for happy path', () => {
+describe('E2E tests for valid URL containing no pre-selected overrides', () => {
 	const app = 'http://localhost:3000/';
 	let browser;
 	let page;
@@ -189,5 +189,38 @@ describe('E2E tests for happy path', () => {
 		);
 		const heading = await newPage.$eval('h1', (el) => el.textContent);
 		expect(heading).toBe('Your upcoming booking');
+	});
+});
+
+describe('E2E tests for valid URL containing pre-selected overrides', () => {
+	it('should direct the user to the Main Page and display the revelevant list of overrides', async () => {
+		//Open app
+		let browser = await puppeteer.launch();
+		let page = await browser.newPage();
+		await page.goto('http://localhost:3000/');
+
+		//Enter a valid url which contains pre-selected overrides ('affiliate-ana' & 'breakfast-upsell-error'') and click on the 'GO' button.
+		await page.click('input[name="url"]');
+		await page.type(
+			'input[name="url"]',
+			'cop/bookingform/booking?override=affiliate-ana,breakfast-upsell-error'
+		);
+		await page.click('button[name="Go"]');
+
+		//Expect the pre-selected overrides to appear in the selected overrides list
+		const footerList = await page.$eval(
+			'.footer-override-list',
+			(el) => el.textContent
+		);
+		expect(footerList).toContain('affiliate-ana');
+		expect(footerList).toContain('breakfast-upsell-error');
+
+		//Expect the url to be displayed on the screen to contain the pre-selected overrides
+		const url = await page.$eval('#url-display', (el) => el.textContent);
+		expect(url).toBe(
+			'http://localhost:8080/cop/bookingForm/booking?override=affiliate-ana,breakfast-upsell-error'
+		);
+		//Close the browser
+		await browser.close();
 	});
 });
