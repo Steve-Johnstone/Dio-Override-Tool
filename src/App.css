@@ -16,10 +16,6 @@ body {
 	cursor: pointer;
 }
 
-.override-list li:hover {
-	background-color: rgb(241, 236, 236);
-}
-
 .header {
 	color: white;
 	background-color: #d32f2f;
@@ -71,6 +67,7 @@ body {
 .override-selected {
 	background-color: #fefdca;
 	font-weight: bold;
+	max-width: 25px;
 }
 
 .footer-override-display {
@@ -117,4 +114,8 @@ body {
 .url-copied {
 	margin: 20px 0px 0px 25px;
 	color: #42ba96;
+}
+
+.override-list-item:hover {
+	background-color: rgb(241, 236, 236);
 }

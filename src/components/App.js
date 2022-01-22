@@ -7,6 +7,7 @@ import '../App.css';
 function App() {
 	const [url, setUrl] = useState('');
 	const [overrideList, setOverrideList] = useState([]);
+	const [selectedOverrides, setSelectedOverrides] = useState([]);
 
 	return (
 		<Router>
@@ -19,13 +20,21 @@ function App() {
 							url={url}
 							setUrl={setUrl}
 							setOverrideList={setOverrideList}
+							setSelectedOverrides={setSelectedOverrides}
 						/>
 					}
 				/>
 				<Route
 					exact
 					path='/overrides'
-					element={<OverrideDisplay url={url} overrideList={overrideList} />}
+					element={
+						<OverrideDisplay
+							url={url}
+							overrideList={overrideList}
+							selectedOverrides={selectedOverrides}
+							setSelectedOverrides={setSelectedOverrides}
+						/>
+					}
 				/>
 			</Routes>
 		</Router>

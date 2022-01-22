@@ -1,24 +1,21 @@
 import { render, screen } from '@testing-library/react';
-import renderer from 'react-test-renderer';
-import OpeningScreen from '../../components/OpeningScreen';
+import OpeningScreen from '../../../components/OpeningScreen';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('OpeningScreen component', () => {
-	const { setUrl, setOverrideList } = jest.fn();
-	const component = (
-		<MemoryRouter>
-			<OpeningScreen url='' setUrl={setUrl} setOverrideList={setOverrideList} />
-		</MemoryRouter>
-	);
-
-	it('should display the DOM correctly', () => {
-		const tree = renderer.create(component).toJSON();
-
-		expect(tree).toMatchSnapshot();
-	});
+	const { setUrl, setOverrideList, setSelectedOverrides } = jest.fn();
 
 	it('should render the opening screen correctly', () => {
-		render(component);
+		render(
+			<MemoryRouter>
+				<OpeningScreen
+					url='cop/bookingdetails/bookingdetailspage'
+					setUrl={setUrl}
+					setOverrideList={setOverrideList}
+					setSelectedOverrides={setSelectedOverrides}
+				/>
+			</MemoryRouter>
+		);
 
 		//Expect the input field to be displayed
 		expect(screen.getByText('Local URL of the page')).toBeInTheDocument();

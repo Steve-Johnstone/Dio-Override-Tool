@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer';
-import App from '../../components/App';
+import App from '../../../components/App';
 
 describe('App component', () => {
 	//It should render the UI correctly

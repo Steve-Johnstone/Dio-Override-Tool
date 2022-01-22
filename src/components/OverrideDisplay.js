@@ -7,8 +7,12 @@ import Footer from './Footer';
 import SearchBar from './SearchBar';
 import { filterOverrides } from '../helpers/filterOverrides';
 
-const OverrideDisplay = ({ url, overrideList }) => {
-	const [selectedOverrides, setSelectedOverrides] = useState([]);
+const OverrideDisplay = ({
+	url,
+	overrideList,
+	selectedOverrides,
+	setSelectedOverrides,
+}) => {
 	const [searchTerm, setSearchTerm] = useState('');
 
 	const handleClick = (selectedOverride) => {
@@ -41,13 +45,16 @@ const OverrideDisplay = ({ url, overrideList }) => {
 									<li
 										key={overrideList.indexOf(override)}
 										onClick={() => handleClick(override)}
-										className={
-											selectedOverrides.includes(override)
-												? 'override-selected'
-												: ''
-										}
 									>
-										{formatOverrides(override)}
+										<span
+											className={
+												selectedOverrides.includes(override)
+													? 'override-selected'
+													: 'override-list-item'
+											}
+										>
+											{formatOverrides(override)}
+										</span>
 									</li>
 								);
 							})}

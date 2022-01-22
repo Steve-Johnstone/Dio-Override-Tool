@@ -15,6 +15,5 @@ export function buildUrl(url, selectedOverrides) {
 		default:
 			convertedUrl = url;
 	}
-
 	return `http://localhost:8080/${convertedUrl}?override=${overrideString}`;
 }

@@ -5,7 +5,12 @@ import axios from 'axios';
 import Header from './Header';
 import 'bulma/css/bulma.min.css';
 
-const OpeningScreen = ({ url, setUrl, setOverrideList }) => {
+const OpeningScreen = ({
+	url,
+	setUrl,
+	setOverrideList,
+	setSelectedOverrides,
+}) => {
 	const [overrides, setOverrides] = useState([]);
 	const [error, setError] = useState('');
 
@@ -26,11 +31,23 @@ const OpeningScreen = ({ url, setUrl, setOverrideList }) => {
 		if (overrides.length === 0) {
 			return setError('ERROR: no connection to the host server.');
 		}
+		if (url.includes('?')) {
+			let [pagePath, overrideSection] = url.split('?');
+			let preSelectedOverrides = overrideSection.substring(9).split(',');
 
-		if (!overrides[url]) {
-			return setError('ERROR: no overrides found for provided URL.');
+			if (!overrides[pagePath]) {
+				return setError('ERROR: no overrides found for provided URL.');
+			}
+			setSelectedOverrides(preSelectedOverrides);
+			setUrl(pagePath);
+			setOverrideList(overrides[pagePath]);
+		} else {
+			if (!overrides[url]) {
+				return setError('ERROR: no overrides found for provided URL.');
+			}
+			setUrl(url);
+			setOverrideList(overrides[url]);
 		}
-		setOverrideList(overrides[url]);
 	};
 
 	return (

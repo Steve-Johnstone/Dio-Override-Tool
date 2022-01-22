@@ -7,7 +7,7 @@ import { buildUrl } from '../helpers/buildUrl';
 import 'bulma/css/bulma.min.css';
 
 const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
-	const [urlCopied, setUrlCopied] = useState('');
+	const [urlCopied, setUrlCopied] = useState(false);
 
 	const handleClick = (clickedOverride) => {
 		setSelectedOverrides(
@@ -16,14 +16,13 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 	};
 
 	const copyToClipboard = (id) => {
-		setUrlCopied('');
 		let r = document.createRange();
 		r.selectNode(document.getElementById(id));
 		window.getSelection().removeAllRanges();
 		window.getSelection().addRange(r);
 		document.execCommand('copy');
 		window.getSelection().removeAllRanges();
-		setUrlCopied('URL copied to clipboard!');
+		setUrlCopied(true);
 	};
 
 	return (
@@ -56,7 +55,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 				</div>
 			</div>
 			<div className={urlCopied ? 'url-copied' : ''}>
-				<div>{urlCopied}</div>
+				<div>{urlCopied ? 'URL copied to clipboard!' : ''} </div>
 			</div>
 			<div className='level-item is-justify-content-space-between ml-5'>
 				<div>
@@ -67,7 +66,10 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 					<button
 						name='clear-all'
 						className='button is-white m-2'
-						onClick={() => setSelectedOverrides([])}
+						onClick={() => {
+							setSelectedOverrides([]);
+							setUrlCopied(false);
+						}}
 					>
 						<ImCross />
 						&nbsp;&nbsp;Clear All

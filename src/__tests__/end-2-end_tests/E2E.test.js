@@ -36,7 +36,7 @@ describe('E2E tests for happy path', () => {
 		//Expect the correct url to be displayed on the screen
 		const url = await page.$eval('#url-display', (el) => el.textContent);
 		expect(url).toBe(
-			'localhost:8080/cop/bookingdetails/bookingdetailspage?override='
+			'http://localhost:8080/cop/bookingDetails/bookingDetailsPage?override='
 		);
 	});
 
@@ -78,7 +78,7 @@ describe('E2E tests for happy path', () => {
 		//Expect the override to be added to the url displayed in the footer
 		const url = await page.$eval('#url-display', (el) => el.textContent);
 		expect(url).toBe(
-			'localhost:8080/cop/bookingdetails/bookingdetailspage?override=change-redirect'
+			'http://localhost:8080/cop/bookingDetails/bookingDetailsPage?override=change-redirect'
 		);
 	});
 
@@ -97,7 +97,7 @@ describe('E2E tests for happy path', () => {
 		//Expect the override to be removed from the url displayed in the footer
 		const url = await page.$eval('#url-display', (el) => el.textContent);
 		expect(url).toBe(
-			'localhost:8080/cop/bookingdetails/bookingdetailspage?override='
+			'http://localhost:8080/cop/bookingDetails/bookingDetailsPage?override='
 		);
 	});
 	it('should clear all the overrides from the selected overrides list in the footer when "Clear All" is clicked and also remove them from the url', async () => {
@@ -131,7 +131,7 @@ describe('E2E tests for happy path', () => {
 		//Expect the overrides to be present in the url displayed in the footer, in the order in which they were added
 		const url = await page.$eval('#url-display', (el) => el.textContent);
 		expect(url).toBe(
-			'localhost:8080/cop/bookingdetails/bookingdetailspage?override='
+			'http://localhost:8080/cop/bookingDetails/bookingDetailsPage?override='
 		);
 	});
 
@@ -149,7 +149,7 @@ describe('E2E tests for happy path', () => {
 		//Expect the override to be in the url displayed in the footer
 		let url = await page.$eval('#url-display', (el) => el.textContent);
 		expect(url).toBe(
-			'localhost:8080/cop/bookingdetails/bookingdetailspage?override=homeaway'
+			'http://localhost:8080/cop/bookingDetails/bookingDetailsPage?override=homeaway'
 		);
 
 		//Click on the override from the list of selected overrides in the footer
@@ -165,18 +165,29 @@ describe('E2E tests for happy path', () => {
 		//Expect the override NOT to be in the url
 		url = await page.$eval('#url-display', (el) => el.textContent);
 		expect(url).toBe(
-			'localhost:8080/cop/bookingdetails/bookingdetailspage?override='
+			'http://localhost:8080/cop/bookingDetails/bookingDetailsPage?override='
 		);
 	});
 
-	xit('should open a new tab with the dynamically constructed url, when the "Show It" button is clicked', async () => {
+	it('should open a new tab with the dynamically constructed url, when the "Show It" button is clicked', async () => {
 		//Click on the some overrides from the list ('Insurance Details', 'Multi Room)
 		await page.click('.override-list > li:nth-child(26)');
 		await page.click('.override-list > li:nth-child(28)');
 
-		//Click on the 'Show it' button
-		await page.click('button[name="show-all"]');
+		const pageTarget = page.target();
 
-		//Expect
+		//Click on the 'Show it' button
+		await page.click('a');
+
+		//Expect to be taken to booking details page and see heading 'Your upcoming booking'
+		const newTarget = await browser.waitForTarget(
+			(target) => target.opener() === pageTarget
+		);
+		const newPage = await newTarget.page();
+		await newPage.goto(
+			'http://localhost:8080/cop/bookingDetails/bookingDetailsPage?override=multi-room,insurance-details'
+		);
+		const heading = await newPage.$eval('h1', (el) => el.textContent);
+		expect(heading).toBe('Your upcoming booking');
 	});
 });

@@ -81,52 +81,76 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
         data-testid="override-list"
       >
         <li
-          className=""
           onClick={[Function]}
         >
-          Australian Print Receipt
+          <span
+            className="override-list-item"
+          >
+            Australian Print Receipt
+          </span>
         </li>
         <li
-          className=""
           onClick={[Function]}
         >
-          Consolidated Amenities
+          <span
+            className="override-list-item"
+          >
+            Consolidated Amenities
+          </span>
         </li>
         <li
-          className=""
           onClick={[Function]}
         >
-          Event Widget
+          <span
+            className="override-list-item"
+          >
+            Event Widget
+          </span>
         </li>
         <li
-          className=""
           onClick={[Function]}
         >
-          Insurance Details
+          <span
+            className="override-list-item"
+          >
+            Insurance Details
+          </span>
         </li>
         <li
-          className=""
           onClick={[Function]}
         >
-          Multi Room
+          <span
+            className="override-list-item"
+          >
+            Multi Room
+          </span>
         </li>
         <li
-          className=""
           onClick={[Function]}
         >
-          No Cancel Button
+          <span
+            className="override-list-item"
+          >
+            No Cancel Button
+          </span>
         </li>
         <li
-          className=""
           onClick={[Function]}
         >
-          No Guest Reviews
+          <span
+            className="override-list-item"
+          >
+            No Guest Reviews
+          </span>
         </li>
         <li
-          className=""
           onClick={[Function]}
         >
-          United Only Points
+          <span
+            className="override-list-item"
+          >
+            United Only Points
+          </span>
         </li>
       </ul>
     </div>
@@ -173,7 +197,7 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
         data-testid="url-display"
         id="url-display"
       >
-        http://localhost:8080/?override=
+        http://localhost:8080/cop/?override=
       </div>
     </div>
     <div
@@ -181,6 +205,7 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
     >
       <div>
         
+         
       </div>
     </div>
     <div
@@ -220,7 +245,7 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
         </button>
         <a
           className="button m-2"
-          href="http://localhost:8080/?override="
+          href="http://localhost:8080/cop/?override="
           id="go-button"
           name="show-it"
           target="blank"

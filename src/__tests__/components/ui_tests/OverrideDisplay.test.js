@@ -1,35 +1,30 @@
 import { render, screen, within } from '@testing-library/react';
-import renderer from 'react-test-renderer';
-import OverrideDisplay from '../../components/OverrideDisplay';
+import OverrideDisplay from '../../../components/OverrideDisplay';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('OverrideDisplay component', () => {
-	const component = (
-		<MemoryRouter>
-			<OverrideDisplay
-				url=''
-				overrideList={[
-					'Australian Print Receipt',
-					'Consolidated Amenities',
-					'Event Widget',
-					'Insurance Details',
-					'Multi Room',
-					'No Cancel Button',
-					'No Guest Reviews',
-					'United Only Points',
-				]}
-			/>
-		</MemoryRouter>
-	);
-
-	it('should display the DOM correctly', () => {
-		const tree = renderer.create(component).toJSON();
-
-		expect(tree).toMatchSnapshot();
-	});
+	const setSelectedOverrides = jest.fn();
 
 	it('should render the component correctly, based on the props passed to it', () => {
-		render(component);
+		render(
+			<MemoryRouter>
+				<OverrideDisplay
+					url='cop/bookingDetails/bookingDetailsPage'
+					overrideList={[
+						'Australian Print Receipt',
+						'Consolidated Amenities',
+						'Event Widget',
+						'Insurance Details',
+						'Multi Room',
+						'No Cancel Button',
+						'No Guest Reviews',
+						'United Only Points',
+					]}
+					selectedOverrides={[]}
+					setSelectedOverrides={setSelectedOverrides}
+				/>
+			</MemoryRouter>
+		);
 
 		//Expect the overridelist to be rendered
 		const list = screen.getByTestId('override-list');

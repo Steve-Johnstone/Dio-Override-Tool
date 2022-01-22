@@ -1,25 +1,17 @@
 import { render, screen } from '@testing-library/react';
-import renderer from 'react-test-renderer';
-import Footer from '../../components/Footer';
+import Footer from '../../../components/Footer';
 
 describe('Footer component', () => {
 	const setSelectedOverrides = jest.fn();
-	const component = (
-		<Footer
-			url={'cop/bookingdetails/bookingdetailspage'}
-			selectedOverrides={['Already Charged Box', 'No Amenities']}
-			setSelectedOverrides={setSelectedOverrides}
-		/>
-	);
-
-	it('should display the DOM correctly', () => {
-		const tree = renderer.create(component).toJSON();
-
-		expect(tree).toMatchSnapshot();
-	});
 
 	it('should render the component correctly, based on the props passed to it', () => {
-		render(component);
+		render(
+			<Footer
+				url={'cop/bookingdetails/bookingdetailspage'}
+				selectedOverrides={['Already Charged Box', 'No Amenities']}
+				setSelectedOverrides={setSelectedOverrides}
+			/>
+		);
 
 		//Expect the list to be rendered
 		expect(screen.getByRole('list')).toBeInTheDocument();
