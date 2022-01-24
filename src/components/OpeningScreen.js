@@ -31,6 +31,11 @@ const OpeningScreen = ({
 		if (overrides.length === 0) {
 			return setError('ERROR: no connection to the host server.');
 		}
+		setUrlIntoState();
+	};
+
+	const setUrlIntoState = () => {
+		//Check if url has overide parameters
 		if (url.includes('?')) {
 			let [pagePath, overrideSection] = url.split('?');
 			let preSelectedOverrides = overrideSection.substring(9).split(',');
@@ -45,7 +50,6 @@ const OpeningScreen = ({
 			if (!overrides[url]) {
 				return setError('ERROR: no overrides found for provided URL.');
 			}
-			setUrl(url);
 			setOverrideList(overrides[url]);
 		}
 	};

@@ -31,7 +31,7 @@ describe('E2E tests for valid URL containing no pre-selected overrides', () => {
 
 		//Expect the first available override for this url to be displayed on the screen
 		const item = await page.$eval('li', (el) => el.textContent);
-		expect(item).toBe('All In Price Ec');
+		expect(item).toBe('All In Price Ec With Scc With Currency Conversion');
 
 		//Expect the correct url to be displayed on the screen
 		const url = await page.$eval('#url-display', (el) => el.textContent);
@@ -66,7 +66,7 @@ describe('E2E tests for valid URL containing no pre-selected overrides', () => {
 
 	it('should add an override to the selected overrides when it is clicked and also to the url', async () => {
 		//Click on the 8th override in the list ('Change Redirect')
-		await page.click('.override-list > li:nth-child(8)');
+		await page.click('.override-list > li:nth-child(11)');
 
 		//Expect the override to be dispayed in the list of selected overrides in the footer
 		const footerList = await page.$eval(
@@ -101,9 +101,9 @@ describe('E2E tests for valid URL containing no pre-selected overrides', () => {
 		);
 	});
 	it('should clear all the overrides from the selected overrides list in the footer when "Clear All" is clicked and also remove them from the url', async () => {
-		//Click on the 5th and 14th overrides in the list ('Australian Print Receipt', 'Event Widget)
-		await page.click('.override-list > li:nth-child(5)');
-		await page.click('.override-list > li:nth-child(14)');
+		//Click on the 5th and 14th overrides in the list ('Australian Print Receipt', 'Cm App Web)
+		await page.click('.override-list > li:nth-child(7)');
+		await page.click('.override-list > li:nth-child(15)');
 
 		//Expect all the overrides to be dispayed in the list of selected overrides in the footer, in kebab casing
 		const item1 = await page.$eval(
@@ -116,7 +116,7 @@ describe('E2E tests for valid URL containing no pre-selected overrides', () => {
 			'.footer-override-list > li:nth-child(2)',
 			(el) => el.textContent
 		);
-		expect(item2).toBe('event-widget');
+		expect(item2).toBe('cm-app-web');
 
 		//Click on the 'Clear All' button
 		await page.click('button[name="clear-all"]');
@@ -136,20 +136,20 @@ describe('E2E tests for valid URL containing no pre-selected overrides', () => {
 	});
 
 	it('should remove an override from the list of selected overrides, as well as the url, when an override is clicked in the selected list', async () => {
-		//Click on an override in the list of overrides ('homeaway')
-		await page.click('.override-list > li:nth-child(23)');
+		//Click on an override in the list of overrides ('Card On File Message')
+		await page.click('.override-list > li:nth-child(8)');
 
 		//Expect the override to be in the list of selected overrides in the footer
 		const override = await page.$eval(
 			'.footer-override-list',
 			(el) => el.textContent
 		);
-		expect(override).toBe('homeaway');
+		expect(override).toBe('card-on-file-message');
 
 		//Expect the override to be in the url displayed in the footer
 		let url = await page.$eval('#url-display', (el) => el.textContent);
 		expect(url).toBe(
-			'http://localhost:8080/cop/bookingDetails/bookingDetailsPage?override=homeaway'
+			'http://localhost:8080/cop/bookingDetails/bookingDetailsPage?override=card-on-file-message'
 		);
 
 		//Click on the override from the list of selected overrides in the footer

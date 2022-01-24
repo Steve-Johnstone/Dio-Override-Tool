@@ -71,7 +71,7 @@ exports[`Footer component should display the DOM correctly 1`] = `
     className="level-item is-justify-content-space-between ml-5"
   >
     <div>
-      Click anywhere on the box to select the whole URL, this way you can copy it.
+      Click anywhere on the box above to copy the URL to the clipboard.
     </div>
     <div
       className="mr-5"

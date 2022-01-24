@@ -23,6 +23,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 		document.execCommand('copy');
 		window.getSelection().removeAllRanges();
 		setUrlCopied(true);
+		document.getElementById(id).style.backgroundColor = '#42ba96';
 	};
 
 	return (
@@ -55,12 +56,11 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 				</div>
 			</div>
 			<div className={urlCopied ? 'url-copied' : ''}>
-				<div>{urlCopied ? 'URL copied to clipboard!' : ''} </div>
+				<div>{urlCopied ? 'URL copied to clipboard' : ''} </div>
 			</div>
 			<div className='level-item is-justify-content-space-between ml-5'>
 				<div>
-					Click anywhere on the box to select the whole URL, this way you can
-					copy it.
+					Click anywhere on the box above to copy the URL to the clipboard.
 				</div>
 				<div className='mr-5'>
 					<button
@@ -69,6 +69,8 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 						onClick={() => {
 							setSelectedOverrides([]);
 							setUrlCopied(false);
+							document.getElementById('url-display-box').style.backgroundColor =
+								'';
 						}}
 					>
 						<ImCross />
