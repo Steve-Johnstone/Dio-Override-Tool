@@ -72,8 +72,10 @@ const OverrideDisplay = ({
 };
 
 OverrideDisplay.propTypes = {
-	overrideList: PropTypes.array,
 	url: PropTypes.string,
+	overrideList: PropTypes.array,
+	selectedOverrides: PropTypes.array,
+	setSelectedOverrides: PropTypes.func,
 };
 
 export default OverrideDisplay;

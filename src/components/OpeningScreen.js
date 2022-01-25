@@ -31,11 +31,10 @@ const OpeningScreen = ({
 		if (overrides.length === 0) {
 			return setError('ERROR: no connection to the host server.');
 		}
-		setUrlIntoState();
+		setOverrideListIntoState();
 	};
 
-	const setUrlIntoState = () => {
-		//Check if url has overide parameters
+	const setOverrideListIntoState = () => {
 		if (url.includes('?')) {
 			let [pagePath, overrideSection] = url.split('?');
 			let preSelectedOverrides = overrideSection.substring(9).split(',');
@@ -101,6 +100,7 @@ OpeningScreen.propTypes = {
 	url: PropTypes.string,
 	setUrl: PropTypes.func,
 	setOverrideList: PropTypes.func,
+	setSelectedOverrides: PropTypes.func,
 };
 
 export default OpeningScreen;
