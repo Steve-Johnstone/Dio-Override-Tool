@@ -19,20 +19,19 @@ on any browser or operation system.
 
 In order to use this application, you must have a *Dionysus Light Server* running locally on your machine.  To do this, open the 
 *dionysusuipack* repo and enter the command:
-
 #### `npm run server`
 
 This will start the server on [http://localhost:8080](http://localhost:8080)
 
-In order to run this application, simply enter the command:
+In order to run this application, you need to first install the required dependencies:
+#### `npm install`
 
+Then run the following command in order to start the application:
 #### `npm start`
 
 This will start the React server on [http://localhost:3000](http://localhost:3000).
-
 ## Test Suite
 
 This application contains a wide-ranging test suite, including snapshot tests, UI tests, unit tests and automated E2E testing.  In order
 to run the test suite, simply enter the command:
-
 #### `npm test`
