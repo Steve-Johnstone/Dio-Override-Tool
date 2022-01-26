@@ -29,7 +29,7 @@ In order to run this application, you need to first install the required depende
 Then run the following command in order to start the application:
 #### `npm start`
 
-This will start the React server on [http://localhost:3000](http://localhost:3000).
+This will start the *React* server on [http://localhost:3000](http://localhost:3000).
 ## Test Suite
 
 This application contains a wide-ranging test suite, including snapshot tests, UI tests, unit tests and automated E2E testing.  In order

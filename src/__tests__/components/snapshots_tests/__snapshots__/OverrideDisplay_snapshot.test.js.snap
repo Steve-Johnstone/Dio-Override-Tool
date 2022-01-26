@@ -68,13 +68,11 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
     </div>
   </div>
   <div
-    className="container p-5"
+    className="container mt-5 ml-5"
   >
-    <h4
-      className="title is-4"
-    >
+    <h2>
       All Overrides
-    </h4>
+    </h2>
     <div>
       <ul
         className="override-list"

@@ -70,7 +70,7 @@ const OpeningScreen = ({
 								<input
 									name='url'
 									className='input is-link level-item'
-									placeholder='www.url.com'
+									placeholder='www.hotels.com'
 									type='text'
 									onChange={(e) => setUrl(e.target.value)}
 								></input>

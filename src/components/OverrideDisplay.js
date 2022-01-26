@@ -34,8 +34,8 @@ const OverrideDisplay = ({
 				</div>
 			</div>
 
-			<div className='container p-5'>
-				<h4 className='title is-4'>All Overrides</h4>
+			<div className='container mt-5 ml-5'>
+				<h2>All Overrides</h2>
 				<div>
 					<ul className='override-list' data-testid='override-list'>
 						{overrideList

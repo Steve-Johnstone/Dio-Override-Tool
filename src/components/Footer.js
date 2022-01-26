@@ -23,7 +23,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 		document.execCommand('copy');
 		window.getSelection().removeAllRanges();
 		setUrlCopied(true);
-		document.getElementById(id).style.backgroundColor = '#42ba96';
+		document.getElementById(id).style.backgroundColor = '#fefee6';
 	};
 
 	return (
