@@ -3,12 +3,13 @@ body {
 	margin: 25px auto 25px auto;
 }
 .override-list {
-	height: 500px;
+	height: 450px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
 	overflow-x: scroll;
+	margin-bottom: 10px;
 }
 
 .override-list li {
@@ -60,7 +61,6 @@ body {
 .footer-url-display {
 	background-color: rgba(255, 255, 255, 0.75);
 	padding: 3px;
-	margin: 0px 32px 10px 50px;
 	border-radius: 5px;
 	cursor: pointer;
 }
@@ -72,7 +72,6 @@ body {
 }
 
 .footer-override-display {
-	margin: 10px 30px 10px 23px;
 }
 
 .footer-override-display li {
@@ -107,13 +106,8 @@ body {
 	margin-right: 20px;
 }
 
-#go-button {
-	color: white;
-	background-color: #026dc5;
-}
-
 .url-copied {
-	margin: 20px 0px 0px 25px;
+	margin: 20px 0px 10px 0px;
 	color: #35977a;
 	font-weight: bold;
 }
@@ -125,4 +119,15 @@ body {
 h2 {
 	font-weight: bold;
 	font-size: 22px;
+}
+
+.footer-label {
+	margin-bottom: 8px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.footer-container {
+	margin-left: 10px;
+	margin-right: 5px;
 }

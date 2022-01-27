@@ -77,9 +77,8 @@ const OpeningScreen = ({
 							</div>
 							<button
 								onClick={(e) => handleClick(e)}
-								className='button mt-4'
+								className='button is-info mt-4'
 								name='Go'
-								id='go-button'
 							>
 								<Link style={{ color: 'white' }} to='/overrides'>
 									GO

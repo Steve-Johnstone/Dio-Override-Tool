@@ -28,64 +28,72 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 
 	return (
 		<div className='footer-section'>
-			<div className='footer-override-display'>
-				<ul className='footer-override-list'>
-					{selectedOverrides.map((override) => {
-						return (
-							<li
-								key={selectedOverrides.indexOf(override)}
-								onClick={() => handleClick(override)}
-								data-testid='list-item'
-							>
-								{override}
-							</li>
-						);
-					})}
-				</ul>
-			</div>
-			<div
-				className='footer-url-display ml-5 level-item is-justify-content-flex-start'
-				onClick={() => copyToClipboard('url-display-box')}
-				id='url-display-box'
-			>
-				<div className='ml-3'>
-					<AiOutlineLink />
+			<div className='footer-container'>
+				<p className='footer-label'>
+					{selectedOverrides.length > 0 ? 'Selected Overrides: ' : ''}
+				</p>
+				<div className='footer-override-display'>
+					<ul className='footer-override-list'>
+						{selectedOverrides.map((override) => {
+							return (
+								<li
+									key={selectedOverrides.indexOf(override)}
+									onClick={() => handleClick(override)}
+									data-testid='list-item'
+								>
+									{override}
+								</li>
+							);
+						})}
+					</ul>
 				</div>
-				<div id='url-display' data-testid='url-display' className='p-2'>
-					{buildUrl(url, selectedOverrides)}
+				<p className='footer-label'>URL:</p>
+				<div
+					className='footer-url-display mb-3 level-item is-justify-content-flex-start'
+					id='url-display-box'
+				>
+					<div className='ml-3'>
+						<AiOutlineLink />
+					</div>
+					<div id='url-display' data-testid='url-display' className='p-3'>
+						{buildUrl(url, selectedOverrides)}
+					</div>
 				</div>
-			</div>
-			<div className={urlCopied ? 'url-copied' : ''}>
-				<div>{urlCopied ? 'URL copied to clipboard' : ''} </div>
-			</div>
-			<div className='level-item is-justify-content-space-between ml-5'>
-				<div>
-					Click anywhere on the box above to copy the URL to the clipboard.
+				<div className={urlCopied ? 'url-copied' : ''}>
+					<div>{urlCopied ? 'URL copied to clipboard' : ''} </div>
 				</div>
-				<div className='mr-5'>
+				<div className='level-item is-justify-content-space-between'>
 					<button
-						name='clear-all'
-						className='button is-white m-2'
-						onClick={() => {
-							setSelectedOverrides([]);
-							setUrlCopied(false);
-							document.getElementById('url-display-box').style.backgroundColor =
-								'';
-						}}
+						className='button is-info'
+						onClick={() => copyToClipboard('url-display-box')}
 					>
-						<ImCross />
-						&nbsp;&nbsp;Clear All
+						Copy URL
 					</button>
-					<a
-						name='show-it'
-						id='go-button'
-						className='button m-2'
-						href={buildUrl(url, selectedOverrides)}
-						target='blank'
-					>
-						<IoMdRefresh />
-						&nbsp;&nbsp;Show it
-					</a>
+					<div className='mr-5'>
+						<button
+							name='clear-all'
+							className='button is-danger m-2'
+							onClick={() => {
+								setSelectedOverrides([]);
+								setUrlCopied(false);
+								document.getElementById(
+									'url-display-box'
+								).style.backgroundColor = '';
+							}}
+						>
+							<ImCross />
+							&nbsp;&nbsp;Clear All
+						</button>
+						<a
+							name='show-it'
+							className='button is-success m-2'
+							href={buildUrl(url, selectedOverrides)}
+							target='blank'
+						>
+							<IoMdRefresh />
+							&nbsp;&nbsp;Show it
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>

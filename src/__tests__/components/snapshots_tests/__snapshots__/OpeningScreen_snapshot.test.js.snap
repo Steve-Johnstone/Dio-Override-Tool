@@ -52,8 +52,7 @@ exports[`OpeningScreen component should display the DOM correctly 1`] = `
             />
           </div>
           <button
-            className="button mt-4"
-            id="go-button"
+            className="button is-info mt-4"
             name="Go"
             onClick={[Function]}
           >

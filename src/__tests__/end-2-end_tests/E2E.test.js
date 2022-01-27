@@ -26,7 +26,7 @@ describe('E2E tests for valid URL containing no pre-selected overrides', () => {
 
 	it('should direct the user to the Main Page and display the revelevant list of overrides', async () => {
 		//Expect heading of main page to be displayed
-		const heading = await page.$eval('h4', (el) => el.textContent);
+		const heading = await page.$eval('h2', (el) => el.textContent);
 		expect(heading).toBe('All Overrides');
 
 		//Expect the first available override for this url to be displayed on the screen
