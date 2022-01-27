@@ -60,9 +60,8 @@ body {
 
 .footer-url-display {
 	background-color: rgba(255, 255, 255, 0.75);
-	padding: 3px;
 	border-radius: 5px;
-	cursor: pointer;
+	margin-right: 32px;
 }
 
 .override-selected {
@@ -107,7 +106,7 @@ body {
 }
 
 .url-copied {
-	margin: 20px 0px 10px 0px;
+	margin: 15px 0px 5px 0px;
 	color: #35977a;
 	font-weight: bold;
 }

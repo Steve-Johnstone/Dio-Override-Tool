@@ -47,7 +47,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 						})}
 					</ul>
 				</div>
-				<p className='footer-label'>URL:</p>
+				<p className='footer-label'>url:</p>
 				<div
 					className='footer-url-display mb-3 level-item is-justify-content-flex-start'
 					id='url-display-box'
@@ -55,7 +55,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 					<div className='ml-3'>
 						<AiOutlineLink />
 					</div>
-					<div id='url-display' data-testid='url-display' className='p-3'>
+					<div id='url-display' data-testid='url-display' className='p-2'>
 						{buildUrl(url, selectedOverrides)}
 					</div>
 				</div>
@@ -65,7 +65,11 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 				<div className='level-item is-justify-content-space-between'>
 					<button
 						className='button is-info'
-						onClick={() => copyToClipboard('url-display-box')}
+						id='copy-button'
+						onClick={() => {
+							copyToClipboard('url-display-box');
+							document.getElementById('copy-button').className += ' is-light';
+						}}
 					>
 						Copy URL
 					</button>
@@ -79,6 +83,8 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 								document.getElementById(
 									'url-display-box'
 								).style.backgroundColor = '';
+								document.getElementById('copy-button').className =
+									'button is-info';
 							}}
 						>
 							<ImCross />

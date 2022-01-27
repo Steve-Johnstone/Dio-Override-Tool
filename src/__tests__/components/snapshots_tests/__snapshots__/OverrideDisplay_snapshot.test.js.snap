@@ -174,7 +174,7 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
       <p
         className="footer-label"
       >
-        URL:
+        url:
       </p>
       <div
         className="footer-url-display mb-3 level-item is-justify-content-flex-start"
@@ -203,7 +203,7 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
           </svg>
         </div>
         <div
-          className="p-3"
+          className="p-2"
           data-testid="url-display"
           id="url-display"
         >
@@ -223,6 +223,7 @@ exports[`OverrideDisplay component should display the DOM correctly 1`] = `
       >
         <button
           className="button is-info"
+          id="copy-button"
           onClick={[Function]}
         >
           Copy URL
