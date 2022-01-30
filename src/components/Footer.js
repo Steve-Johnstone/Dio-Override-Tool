@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { ImCross } from 'react-icons/im';
+import Button from './Button';
+import { MdClear } from 'react-icons/md';
 import { IoMdRefresh } from 'react-icons/io';
 import { AiOutlineLink } from 'react-icons/ai';
 import { buildUrl } from '../helpers/buildUrl';
@@ -9,21 +10,30 @@ import 'bulma/css/bulma.min.css';
 const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 	const [urlCopied, setUrlCopied] = useState(false);
 
-	const handleClick = (clickedOverride) => {
+	const handleOverrideClick = (clickedOverride) => {
 		setSelectedOverrides(
 			selectedOverrides.filter((override) => override !== clickedOverride)
 		);
 	};
 
-	const copyToClipboard = (id) => {
+	const handleCopyButtonClick = () => {
+		const displayBox = 'url-display-box';
 		let r = document.createRange();
-		r.selectNode(document.getElementById(id));
+		r.selectNode(document.getElementById(displayBox));
 		window.getSelection().removeAllRanges();
 		window.getSelection().addRange(r);
 		document.execCommand('copy');
 		window.getSelection().removeAllRanges();
 		setUrlCopied(true);
-		document.getElementById(id).style.backgroundColor = '#fefee6';
+		document.getElementById(displayBox).style.backgroundColor = '#fefee6';
+		document.getElementById('copy-button').className += ' is-light';
+	};
+
+	const handleClearButtonClick = () => {
+		setSelectedOverrides([]);
+		setUrlCopied(false);
+		document.getElementById('url-display-box').style.backgroundColor = '';
+		document.getElementById('copy-button').className = 'button is-info';
 	};
 
 	return (
@@ -38,7 +48,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 							return (
 								<li
 									key={selectedOverrides.indexOf(override)}
-									onClick={() => handleClick(override)}
+									onClick={() => handleOverrideClick(override)}
 									data-testid='list-item'
 								>
 									{override}
@@ -47,7 +57,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 						})}
 					</ul>
 				</div>
-				<p className='footer-label'>url:</p>
+				<p className='footer-label'>URL:</p>
 				<div
 					className='footer-url-display mb-3 level-item is-justify-content-flex-start'
 					id='url-display-box'
@@ -63,33 +73,22 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 					<div>{urlCopied ? 'URL copied to clipboard' : ''} </div>
 				</div>
 				<div className='level-item is-justify-content-space-between'>
-					<button
-						className='button is-info'
+					<Button
+						className='is-info'
 						id='copy-button'
-						onClick={() => {
-							copyToClipboard('url-display-box');
-							document.getElementById('copy-button').className += ' is-light';
-						}}
-					>
-						Copy URL
-					</button>
-					<div className='mr-5'>
-						<button
+						text='Copy URL'
+						onClick={handleCopyButtonClick}
+					></Button>
+
+					<div className='level-item is-justify-content-space-between mr-5'>
+						<Button
+							className='is-danger m-2'
 							name='clear-all'
-							className='button is-danger m-2'
-							onClick={() => {
-								setSelectedOverrides([]);
-								setUrlCopied(false);
-								document.getElementById(
-									'url-display-box'
-								).style.backgroundColor = '';
-								document.getElementById('copy-button').className =
-									'button is-info';
-							}}
-						>
-							<ImCross />
-							&nbsp;&nbsp;Clear All
-						</button>
+							text='Clear All'
+							onClick={handleClearButtonClick}
+							icon={<MdClear />}
+						></Button>
+
 						<a
 							name='show-it'
 							className='button is-success m-2'

@@ -59,7 +59,7 @@ body {
 }
 
 .footer-url-display {
-	background-color: rgba(255, 255, 255, 0.75);
+	background-color: #b7c4d0;
 	border-radius: 5px;
 	margin-right: 32px;
 }
@@ -70,11 +70,8 @@ body {
 	max-width: 25px;
 }
 
-.footer-override-display {
-}
-
 .footer-override-display li {
-	background-color: rgba(255, 255, 255, 0.75);
+	background-color: #b7c4d0;
 	display: inline-block;
 	margin-right: 10px;
 	margin-bottom: 10px;
@@ -83,6 +80,7 @@ body {
 
 .footer-override-list li {
 	cursor: pointer;
+	border-radius: 5px;
 }
 
 .main-page-container {
@@ -129,4 +127,8 @@ h2 {
 .footer-container {
 	margin-left: 10px;
 	margin-right: 5px;
+}
+
+#icon-span {
+	margin-top: 5px;
 }

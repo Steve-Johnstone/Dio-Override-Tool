@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Header from './Header';
+import Button from './Button';
 import 'bulma/css/bulma.min.css';
 
 const OpeningScreen = ({
@@ -13,6 +14,11 @@ const OpeningScreen = ({
 }) => {
 	const [overrides, setOverrides] = useState([]);
 	const [error, setError] = useState('');
+	const link = (
+		<Link style={{ color: 'white' }} to='/overrides'>
+			GO
+		</Link>
+	);
 
 	useEffect(() => {
 		const axiosPosts = async () => {
@@ -75,15 +81,13 @@ const OpeningScreen = ({
 									onChange={(e) => setUrl(e.target.value)}
 								></input>
 							</div>
-							<button
-								onClick={(e) => handleClick(e)}
-								className='button is-info mt-4'
+							<Button
+								className='is-info mt-4'
 								name='Go'
-							>
-								<Link style={{ color: 'white' }} to='/overrides'>
-									GO
-								</Link>
-							</button>
+								onClick={(e) => handleClick(e)}
+								link={link}
+							></Button>
+
 							<div className={error ? 'message is-danger mt-5' : ''}>
 								<div className={error ? 'message-body' : ''}>{error}</div>
 							</div>
