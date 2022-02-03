@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OverrideDisplay component should display the DOM correctly 1`] = `
+exports[`OverrideScreen component should display the DOM correctly 1`] = `
 <div
   className="override-display-conatiner"
 >

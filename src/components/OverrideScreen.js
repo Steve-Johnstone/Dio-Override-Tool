@@ -7,7 +7,7 @@ import Footer from './Footer';
 import SearchBar from './SearchBar';
 import { filterOverrides } from '../helpers/filterOverrides';
 
-const OverrideDisplay = ({
+const OverrideScreen = ({
 	url,
 	overrideList,
 	selectedOverrides,
@@ -42,10 +42,7 @@ const OverrideDisplay = ({
 							.filter((override) => filterOverrides(override, searchTerm))
 							.map((override) => {
 								return (
-									<li
-										key={overrideList.indexOf(override)}
-										onClick={() => handleClick(override)}
-									>
+									<li key={override} onClick={() => handleClick(override)}>
 										<span
 											className={
 												selectedOverrides.includes(override)
@@ -71,11 +68,11 @@ const OverrideDisplay = ({
 	);
 };
 
-OverrideDisplay.propTypes = {
+OverrideScreen.propTypes = {
 	url: PropTypes.string,
 	overrideList: PropTypes.array,
 	selectedOverrides: PropTypes.array,
 	setSelectedOverrides: PropTypes.func,
 };
 
-export default OverrideDisplay;
+export default OverrideScreen;

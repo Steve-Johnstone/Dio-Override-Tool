@@ -4,16 +4,13 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import Header from './Header';
 import Button from './Button';
+import ErrorDisplay from './ErrorDisplay';
 import 'bulma/css/bulma.min.css';
 
-const OpeningScreen = ({
-	url,
-	setUrl,
-	setOverrideList,
-	setSelectedOverrides,
-}) => {
+const OpeningScreen = ({ setUrl, setOverrideList, setSelectedOverrides }) => {
 	const [overrides, setOverrides] = useState([]);
 	const [error, setError] = useState('');
+	const [userInput, setUserInput] = useState('');
 	const link = (
 		<Link style={{ color: 'white' }} to='/overrides'>
 			GO
@@ -35,27 +32,31 @@ const OpeningScreen = ({
 		e.preventDefault();
 
 		if (overrides.length === 0) {
-			return setError('ERROR: no connection to the host server.');
+			setError('ERROR: no connection to the host server.');
+			return;
 		}
 		setOverrideListIntoState();
 	};
 
 	const setOverrideListIntoState = () => {
-		if (url.includes('?')) {
-			let [pagePath, overrideSection] = url.split('?');
+		if (userInput.includes('?')) {
+			let [pagePath, overrideSection] = userInput.split('?');
 			let preSelectedOverrides = overrideSection.substring(9).split(',');
 
 			if (!overrides[pagePath]) {
-				return setError('ERROR: no overrides found for provided URL.');
+				setError('ERROR: no overrides found for provided URL.');
+				return;
 			}
 			setSelectedOverrides(preSelectedOverrides);
 			setUrl(pagePath);
 			setOverrideList(overrides[pagePath]);
 		} else {
-			if (!overrides[url]) {
-				return setError('ERROR: no overrides found for provided URL.');
+			if (!overrides[userInput]) {
+				setError('ERROR: no overrides found for provided URL.');
+				return;
 			}
-			setOverrideList(overrides[url]);
+			setUrl(userInput);
+			setOverrideList(overrides[userInput]);
 		}
 	};
 
@@ -78,7 +79,7 @@ const OpeningScreen = ({
 									className='input is-link level-item'
 									placeholder='www.hotels.com'
 									type='text'
-									onChange={(e) => setUrl(e.target.value)}
+									onChange={(e) => setUserInput(e.target.value)}
 								></input>
 							</div>
 							<Button
@@ -88,9 +89,7 @@ const OpeningScreen = ({
 								link={link}
 							></Button>
 
-							<div className={error ? 'message is-danger mt-5' : ''}>
-								<div className={error ? 'message-body' : ''}>{error}</div>
-							</div>
+							{error && <ErrorDisplay error={error} />}
 						</div>
 					</form>
 				</div>
@@ -100,7 +99,6 @@ const OpeningScreen = ({
 };
 
 OpeningScreen.propTypes = {
-	url: PropTypes.string,
 	setUrl: PropTypes.func,
 	setOverrideList: PropTypes.func,
 	setSelectedOverrides: PropTypes.func,
