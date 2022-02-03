@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
-import 'bulma/css/bulma.min.css';
-import { formatOverrides } from '../helpers/formatOverrides';
 import Header from './Header';
 import Footer from './Footer';
 import SearchBar from './SearchBar';
-import { filterOverrides } from '../helpers/filterOverrides';
+import OverrideList from './OverrideList';
+import 'bulma/css/bulma.min.css';
 
-const OverrideScreen = ({
+const MainScreen = ({
 	url,
 	overrideList,
 	selectedOverrides,
@@ -27,37 +26,19 @@ const OverrideScreen = ({
 
 	return (
 		<div className='override-display-conatiner'>
-			<div className='header'>
+			<div className='header-container'>
 				<div className='level-item is-justify-content-space-between'>
 					<Header />
 					<SearchBar setSearchTerm={setSearchTerm} />
 				</div>
 			</div>
 
-			<div className='container mt-5 ml-5'>
-				<h2>All Overrides</h2>
-				<div>
-					<ul className='override-list' data-testid='override-list'>
-						{overrideList
-							.filter((override) => filterOverrides(override, searchTerm))
-							.map((override) => {
-								return (
-									<li key={override} onClick={() => handleClick(override)}>
-										<span
-											className={
-												selectedOverrides.includes(override)
-													? 'override-selected'
-													: 'override-list-item'
-											}
-										>
-											{formatOverrides(override)}
-										</span>
-									</li>
-								);
-							})}
-					</ul>
-				</div>
-			</div>
+			<OverrideList
+				overrideList={overrideList}
+				searchTerm={searchTerm}
+				selectedOverrides={selectedOverrides}
+				handleClick={handleClick}
+			/>
 
 			<Footer
 				url={url}
@@ -68,11 +49,11 @@ const OverrideScreen = ({
 	);
 };
 
-OverrideScreen.propTypes = {
+MainScreen.propTypes = {
 	url: PropTypes.string,
 	overrideList: PropTypes.array,
 	selectedOverrides: PropTypes.array,
 	setSelectedOverrides: PropTypes.func,
 };
 
-export default OverrideScreen;
+export default MainScreen;

@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { AiOutlineSearch } from 'react-icons/ai';
 import 'bulma/css/bulma.min.css';

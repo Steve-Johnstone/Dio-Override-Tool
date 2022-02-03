@@ -1,4 +1,4 @@
-export function formatOverrides(string) {
+export function formatOverride(string) {
 	const words = string.split('-');
 
 	for (let i = 0; i < words.length; i++) {

@@ -7,30 +7,32 @@ exports[`Footer component should display the DOM correctly 1`] = `
   <div
     className="footer-container"
   >
-    <p
-      className="footer-label"
-    >
-      Selected Overrides: 
-    </p>
-    <div
-      className="footer-override-display"
-    >
-      <ul
-        className="footer-override-list"
+    <div>
+      <p
+        className="footer-label"
       >
-        <li
-          data-testid="list-item"
-          onClick={[Function]}
+        Selected Overrides: 
+      </p>
+      <div
+        className="footer-override-display"
+      >
+        <ul
+          className="footer-override-list"
         >
-          Already Charged Box
-        </li>
-        <li
-          data-testid="list-item"
-          onClick={[Function]}
-        >
-          No Amenities
-        </li>
-      </ul>
+          <li
+            data-testid="list-item"
+            onClick={[Function]}
+          >
+            Already Charged Box
+          </li>
+          <li
+            data-testid="list-item"
+            onClick={[Function]}
+          >
+            No Amenities
+          </li>
+        </ul>
+      </div>
     </div>
     <p
       className="footer-label"

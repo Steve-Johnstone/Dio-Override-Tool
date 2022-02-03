@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`OverrideScreen component should display the DOM correctly 1`] = `
+exports[`MainScreen component should display the DOM correctly 1`] = `
 <div
   className="override-display-conatiner"
 >
   <div
-    className="header"
+    className="header-container"
   >
     <div
       className="level-item is-justify-content-space-between"
@@ -73,85 +73,83 @@ exports[`OverrideScreen component should display the DOM correctly 1`] = `
     <h2>
       All Overrides
     </h2>
-    <div>
-      <ul
-        className="override-list"
-        data-testid="override-list"
+    <ul
+      className="override-list"
+      data-testid="override-list"
+    >
+      <li
+        onClick={[Function]}
       >
-        <li
-          onClick={[Function]}
+        <span
+          className="override-list-item"
         >
-          <span
-            className="override-list-item"
-          >
-            Australian Print Receipt
-          </span>
-        </li>
-        <li
-          onClick={[Function]}
+          Australian Print Receipt
+        </span>
+      </li>
+      <li
+        onClick={[Function]}
+      >
+        <span
+          className="override-list-item"
         >
-          <span
-            className="override-list-item"
-          >
-            Consolidated Amenities
-          </span>
-        </li>
-        <li
-          onClick={[Function]}
+          Consolidated Amenities
+        </span>
+      </li>
+      <li
+        onClick={[Function]}
+      >
+        <span
+          className="override-list-item"
         >
-          <span
-            className="override-list-item"
-          >
-            Event Widget
-          </span>
-        </li>
-        <li
-          onClick={[Function]}
+          Event Widget
+        </span>
+      </li>
+      <li
+        onClick={[Function]}
+      >
+        <span
+          className="override-list-item"
         >
-          <span
-            className="override-list-item"
-          >
-            Insurance Details
-          </span>
-        </li>
-        <li
-          onClick={[Function]}
+          Insurance Details
+        </span>
+      </li>
+      <li
+        onClick={[Function]}
+      >
+        <span
+          className="override-list-item"
         >
-          <span
-            className="override-list-item"
-          >
-            Multi Room
-          </span>
-        </li>
-        <li
-          onClick={[Function]}
+          Multi Room
+        </span>
+      </li>
+      <li
+        onClick={[Function]}
+      >
+        <span
+          className="override-list-item"
         >
-          <span
-            className="override-list-item"
-          >
-            No Cancel Button
-          </span>
-        </li>
-        <li
-          onClick={[Function]}
+          No Cancel Button
+        </span>
+      </li>
+      <li
+        onClick={[Function]}
+      >
+        <span
+          className="override-list-item"
         >
-          <span
-            className="override-list-item"
-          >
-            No Guest Reviews
-          </span>
-        </li>
-        <li
-          onClick={[Function]}
+          No Guest Reviews
+        </span>
+      </li>
+      <li
+        onClick={[Function]}
+      >
+        <span
+          className="override-list-item"
         >
-          <span
-            className="override-list-item"
-          >
-            United Only Points
-          </span>
-        </li>
-      </ul>
-    </div>
+          United Only Points
+        </span>
+      </li>
+    </ul>
   </div>
   <div
     className="footer-section"
@@ -159,17 +157,19 @@ exports[`OverrideScreen component should display the DOM correctly 1`] = `
     <div
       className="footer-container"
     >
-      <p
-        className="footer-label"
-      >
-        
-      </p>
-      <div
-        className="footer-override-display"
-      >
-        <ul
-          className="footer-override-list"
-        />
+      <div>
+        <p
+          className="footer-label"
+        >
+          
+        </p>
+        <div
+          className="footer-override-display"
+        >
+          <ul
+            className="footer-override-list"
+          />
+        </div>
       </div>
       <p
         className="footer-label"

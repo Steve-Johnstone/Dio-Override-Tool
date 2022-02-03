@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import Header from './Header';
 import Button from './Button';
 import ErrorDisplay from './ErrorDisplay';
+import axios from 'axios';
 import 'bulma/css/bulma.min.css';
 
 const OpeningScreen = ({ setUrl, setOverrideList, setSelectedOverrides }) => {
@@ -59,7 +59,7 @@ const OpeningScreen = ({ setUrl, setOverrideList, setSelectedOverrides }) => {
 
 	return (
 		<div className='main-page-container'>
-			<div className='header level-item is-justify-content-space-between'>
+			<div className='header-container level-item is-justify-content-space-between'>
 				<Header />
 			</div>
 

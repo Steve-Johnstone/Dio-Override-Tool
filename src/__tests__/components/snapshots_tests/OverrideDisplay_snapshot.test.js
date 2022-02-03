@@ -1,14 +1,14 @@
 import renderer from 'react-test-renderer';
-import OverrideScreen from '../../../components/OverrideScreen';
+import MainScreen from '../../../components/MainScreen';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('OverrideScreen component', () => {
+describe('MainScreen component', () => {
 	const setSelectedOverrides = jest.fn();
 	it('should display the DOM correctly', () => {
 		const tree = renderer
 			.create(
 				<MemoryRouter>
-					<OverrideScreen
+					<MainScreen
 						url='cop/'
 						overrideList={[
 							'Australian Print Receipt',

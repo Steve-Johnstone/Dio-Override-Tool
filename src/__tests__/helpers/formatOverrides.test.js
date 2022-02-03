@@ -1,6 +1,6 @@
-import { formatOverrides } from '../../helpers/formatOverrides';
+import { formatOverride } from '../../helpers/formatOverride';
 
-describe('formatOverrides function', () => {
+describe('formatOverride function', () => {
 	it.each([
 		['has-swimming-pool', 'Has Swimming Pool'],
 		['is-gold-member', 'Is Gold Member'],
@@ -9,7 +9,7 @@ describe('formatOverrides function', () => {
 	])(
 		'should replace the dash between words with a space and also capitalise the first letter of each word',
 		(override, formattedOverride) => {
-			expect(formatOverrides(override)).toBe(formattedOverride);
+			expect(formatOverride(override)).toBe(formattedOverride);
 		}
 	);
 });

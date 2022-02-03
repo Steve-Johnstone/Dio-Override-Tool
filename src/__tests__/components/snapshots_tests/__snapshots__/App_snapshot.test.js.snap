@@ -5,7 +5,7 @@ exports[`App component should display the DOM correctly 1`] = `
   className="main-page-container"
 >
   <div
-    className="header level-item is-justify-content-space-between"
+    className="header-container level-item is-justify-content-space-between"
   >
     <div
       className="is-flex is-justify-content-space-between"

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from './Button';
+import SelectedOverrideList from './SelectedOverrideList';
+import UrlDisplay from './UrlDisplay';
+import { buildUrl } from '../helpers/buildUrl';
 import { MdClear } from 'react-icons/md';
 import { IoMdRefresh } from 'react-icons/io';
-import { AiOutlineLink } from 'react-icons/ai';
-import { buildUrl } from '../helpers/buildUrl';
 import 'bulma/css/bulma.min.css';
 
 const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
@@ -39,36 +40,14 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 	return (
 		<div className='footer-section'>
 			<div className='footer-container'>
-				<p className='footer-label'>
-					{selectedOverrides.length > 0 ? 'Selected Overrides: ' : ''}
-				</p>
-				<div className='footer-override-display'>
-					<ul className='footer-override-list'>
-						{selectedOverrides.map((override) => {
-							return (
-								<li
-									key={selectedOverrides.indexOf(override)}
-									onClick={() => handleOverrideClick(override)}
-									data-testid='list-item'
-								>
-									{override}
-								</li>
-							);
-						})}
-					</ul>
-				</div>
+				<SelectedOverrideList
+					selectedOverrides={selectedOverrides}
+					onClick={handleOverrideClick}
+				/>
+
 				<p className='footer-label'>URL:</p>
-				<div
-					className='footer-url-display mb-3 level-item is-justify-content-flex-start'
-					id='url-display-box'
-				>
-					<div className='ml-3'>
-						<AiOutlineLink />
-					</div>
-					<div id='url-display' data-testid='url-display' className='p-2'>
-						{buildUrl(url, selectedOverrides)}
-					</div>
-				</div>
+				<UrlDisplay url={url} selectedOverrides={selectedOverrides} />
+
 				<div className={urlCopied ? 'url-copied' : ''}>
 					<div>{urlCopied ? 'URL copied to clipboard' : ''} </div>
 				</div>

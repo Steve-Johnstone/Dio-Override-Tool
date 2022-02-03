@@ -1,14 +1,14 @@
 import { render, screen, within } from '@testing-library/react';
-import OverrideScreen from '../../../components/OverrideScreen';
+import MainScreen from '../../../components/MainScreen';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('OverrideScreen component', () => {
+describe('MainScreen component', () => {
 	const setSelectedOverrides = jest.fn();
 
 	it('should render the component correctly, based on the props passed to it', () => {
 		render(
 			<MemoryRouter>
-				<OverrideScreen
+				<MainScreen
 					url='cop/bookingDetails/bookingDetailsPage'
 					overrideList={[
 						'Australian Print Receipt',
