@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Header from './Header';
@@ -11,11 +11,7 @@ const OpeningScreen = ({ setUrl, setOverrideList, setSelectedOverrides }) => {
 	const [overrides, setOverrides] = useState([]);
 	const [error, setError] = useState('');
 	const [userInput, setUserInput] = useState('');
-	const link = (
-		<Link style={{ color: 'white' }} to='/overrides'>
-			GO
-		</Link>
-	);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const axiosPosts = async () => {
@@ -58,6 +54,7 @@ const OpeningScreen = ({ setUrl, setOverrideList, setSelectedOverrides }) => {
 			setUrl(userInput);
 			setOverrideList(overrides[userInput]);
 		}
+		navigate('/overrides');
 	};
 
 	return (
@@ -85,8 +82,8 @@ const OpeningScreen = ({ setUrl, setOverrideList, setSelectedOverrides }) => {
 							<Button
 								className='is-info mt-4'
 								name='Go'
+								text='GO'
 								onClick={(e) => handleClick(e)}
-								link={link}
 							></Button>
 
 							{error && <ErrorDisplay error={error} />}

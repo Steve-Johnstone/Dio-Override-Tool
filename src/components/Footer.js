@@ -75,7 +75,6 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 				<div className='level-item is-justify-content-space-between'>
 					<Button
 						className='is-info'
-						id='copy-button'
 						text='Copy URL'
 						onClick={handleCopyButtonClick}
 					></Button>

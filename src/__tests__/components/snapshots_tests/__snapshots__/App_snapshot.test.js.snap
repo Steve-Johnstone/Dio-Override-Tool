@@ -57,17 +57,7 @@ exports[`App component should display the DOM correctly 1`] = `
               name="Go"
               onClick={[Function]}
             >
-              <a
-                href="/overrides"
-                onClick={[Function]}
-                style={
-                  Object {
-                    "color": "white",
-                  }
-                }
-              >
-                GO
-              </a>
+              GO
             </button>
           </div>
           

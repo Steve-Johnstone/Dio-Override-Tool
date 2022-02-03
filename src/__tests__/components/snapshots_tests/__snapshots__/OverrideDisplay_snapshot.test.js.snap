@@ -224,7 +224,6 @@ exports[`OverrideScreen component should display the DOM correctly 1`] = `
         <div>
           <button
             className="button is-info"
-            id="copy-button"
             onClick={[Function]}
           >
             Copy URL
