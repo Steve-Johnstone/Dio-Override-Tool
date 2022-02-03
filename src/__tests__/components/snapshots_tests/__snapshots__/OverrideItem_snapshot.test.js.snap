@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OverrideItem component should display the DOM correctly 1`] = `
+<li
+  onClick={[Function]}
+>
+  <span
+    className="override-selected"
+  >
+    Homeaway
+  </span>
+</li>
+`;

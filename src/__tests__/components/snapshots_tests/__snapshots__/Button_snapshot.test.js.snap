@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should display the DOM correctly 1`] = `
+<div>
+  <button
+    className="button is-info"
+    id="copy-button"
+    name="copy-button"
+    onClick={[MockFunction]}
+  >
+    Copy the URL
+  </button>
+</div>
+`;

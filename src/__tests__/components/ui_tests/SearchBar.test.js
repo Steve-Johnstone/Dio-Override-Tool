@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import SearchBar from '../../../components/SearchBar';
+import SearchBar from '../../../components/UI/SearchBar';
 
 describe('SearchBar component', () => {
 	const setSearchTerm = jest.fn();

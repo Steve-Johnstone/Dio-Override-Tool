@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import OpeningScreen from './OpeningScreen.js';
-import MainScreen from './MainScreen.js';
+import OpeningScreen from './Pages/OpeningScreen.js';
+import MainScreen from './Pages/MainScreen.js';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import '../App.css';
 

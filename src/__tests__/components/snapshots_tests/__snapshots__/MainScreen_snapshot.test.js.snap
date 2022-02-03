@@ -90,7 +90,7 @@ exports[`MainScreen component should display the DOM correctly 1`] = `
         onClick={[Function]}
       >
         <span
-          className="override-list-item"
+          className="override-selected"
         >
           Consolidated Amenities
         </span>
@@ -117,7 +117,7 @@ exports[`MainScreen component should display the DOM correctly 1`] = `
         onClick={[Function]}
       >
         <span
-          className="override-list-item"
+          className="override-selected"
         >
           Multi Room
         </span>
@@ -161,14 +161,27 @@ exports[`MainScreen component should display the DOM correctly 1`] = `
         <p
           className="footer-label"
         >
-          
+          Selected Overrides: 
         </p>
         <div
           className="footer-override-display"
         >
           <ul
             className="footer-override-list"
-          />
+          >
+            <li
+              data-testid="list-item"
+              onClick={[Function]}
+            >
+              Consolidated Amenities
+            </li>
+            <li
+              data-testid="list-item"
+              onClick={[Function]}
+            >
+              Multi Room
+            </li>
+          </ul>
         </div>
       </div>
       <p
@@ -207,7 +220,7 @@ exports[`MainScreen component should display the DOM correctly 1`] = `
           data-testid="url-display"
           id="url-display"
         >
-          http://localhost:8080/cop/?override=
+          http://localhost:8080/cop/?override=Consolidated Amenities,Multi Room
         </div>
       </div>
       <div
@@ -224,6 +237,7 @@ exports[`MainScreen component should display the DOM correctly 1`] = `
         <div>
           <button
             className="button is-info"
+            id="copy-button"
             onClick={[Function]}
           >
             Copy URL
@@ -270,7 +284,7 @@ exports[`MainScreen component should display the DOM correctly 1`] = `
           </div>
           <a
             className="button is-success m-2"
-            href="http://localhost:8080/cop/?override="
+            href="http://localhost:8080/cop/?override=Consolidated Amenities,Multi Room"
             name="show-it"
             target="blank"
           >

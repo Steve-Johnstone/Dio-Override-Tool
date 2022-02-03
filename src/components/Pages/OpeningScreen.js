@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Header from './Header';
-import Button from './Button';
-import ErrorDisplay from './ErrorDisplay';
+import Header from '../Layout/Header';
+import Button from '../UI/Button';
+import ErrorDisplay from '../UI/ErrorDisplay';
 import axios from 'axios';
 import 'bulma/css/bulma.min.css';
 

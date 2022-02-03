@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import Button from './Button';
-import SelectedOverrideList from './SelectedOverrideList';
-import UrlDisplay from './UrlDisplay';
-import { buildUrl } from '../helpers/buildUrl';
+import Button from '../UI/Button';
+import SelectedOverrideList from '../UI/SelectedOverrideList';
+import UrlDisplay from '../UI/UrlDisplay';
+import { buildUrl } from '../../helpers/buildUrl';
 import { MdClear } from 'react-icons/md';
 import { IoMdRefresh } from 'react-icons/io';
 import 'bulma/css/bulma.min.css';
@@ -55,6 +55,7 @@ const Footer = ({ url, selectedOverrides, setSelectedOverrides }) => {
 					<Button
 						className='is-info'
 						text='Copy URL'
+						id='copy-button'
 						onClick={handleCopyButtonClick}
 					></Button>
 

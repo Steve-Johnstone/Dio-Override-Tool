@@ -1,5 +1,5 @@
-import Override from './Override';
-import { filterOverrides } from '../helpers/filterOverrides';
+import OverrideItem from './OverrideItem';
+import { filterOverrides } from '../../helpers/filterOverrides';
 import PropTypes from 'prop-types';
 
 const OverrideList = ({
@@ -16,10 +16,11 @@ const OverrideList = ({
 					.filter((override) => filterOverrides(override, searchTerm))
 					.map((override) => {
 						return (
-							<Override
+							<OverrideItem
 								override={override}
 								selectedOverrides={selectedOverrides}
 								handleClick={handleClick}
+								key={override}
 							/>
 						);
 					})}

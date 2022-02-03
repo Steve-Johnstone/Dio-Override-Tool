@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer';
-import MainScreen from '../../../components/MainScreen';
+import MainScreen from '../../../components/Pages/MainScreen';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('MainScreen component', () => {
@@ -20,7 +20,7 @@ describe('MainScreen component', () => {
 							'No Guest Reviews',
 							'United Only Points',
 						]}
-						selectedOverrides={[]}
+						selectedOverrides={['Consolidated Amenities', 'Multi Room']}
 						setSelectedOverrides={setSelectedOverrides}
 					/>
 				</MemoryRouter>

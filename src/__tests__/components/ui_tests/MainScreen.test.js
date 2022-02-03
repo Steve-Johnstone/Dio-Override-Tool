@@ -1,5 +1,5 @@
 import { render, screen, within } from '@testing-library/react';
-import MainScreen from '../../../components/MainScreen';
+import MainScreen from '../../../components/Pages/MainScreen';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('MainScreen component', () => {

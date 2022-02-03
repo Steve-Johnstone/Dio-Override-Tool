@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const SelectedOverrideList = ({ selectedOverrides, onClick }) => {
 	return (
 		<div>
@@ -21,6 +23,11 @@ const SelectedOverrideList = ({ selectedOverrides, onClick }) => {
 			</div>
 		</div>
 	);
+};
+
+SelectedOverrideList.propTypes = {
+	selectedOverrides: PropTypes.array,
+	onClick: PropTypes.func,
 };
 
 export default SelectedOverrideList;

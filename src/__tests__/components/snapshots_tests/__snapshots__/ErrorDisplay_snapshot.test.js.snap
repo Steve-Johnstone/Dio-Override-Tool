@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorDisplay component should display the DOM correctly 1`] = `
+<div
+  className="message is-danger mt-5"
+>
+  <div
+    className="message-body"
+  >
+    this is an error message
+  </div>
+</div>
+`;

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import Header from './Header';
-import Footer from './Footer';
-import SearchBar from './SearchBar';
-import OverrideList from './OverrideList';
+import Header from '../Layout/Header';
+import Footer from '../Layout/Footer';
+import SearchBar from '../UI/SearchBar';
+import OverrideList from '../UI/OverrideList';
 import 'bulma/css/bulma.min.css';
 
 const MainScreen = ({

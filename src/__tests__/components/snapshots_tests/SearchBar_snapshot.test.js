@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer';
-import SearchBar from '../../../components/SearchBar';
+import SearchBar from '../../../components/UI/SearchBar';
 
 describe('SearchBar component', () => {
 	const setSearchTerm = jest.fn();

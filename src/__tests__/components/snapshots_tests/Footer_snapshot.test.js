@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer';
-import Footer from '../../../components/Footer';
+import Footer from '../../../components/Layout/Footer';
 
 describe('Footer component', () => {
 	const setSelectedOverrides = jest.fn();

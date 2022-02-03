@@ -1,4 +1,4 @@
-import { buildUrl } from '../helpers/buildUrl';
+import { buildUrl } from '../../helpers/buildUrl';
 import { AiOutlineLink } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 

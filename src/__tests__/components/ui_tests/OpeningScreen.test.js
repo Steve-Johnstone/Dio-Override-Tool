@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import OpeningScreen from '../../../components/OpeningScreen';
+import OpeningScreen from '../../../components/Pages/OpeningScreen';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('OpeningScreen component', () => {
