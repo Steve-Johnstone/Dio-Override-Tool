@@ -13,7 +13,6 @@ describe('Button component', () => {
 					id='copy-button'
 					text='Copy the URL'
 					onClick={onClick}
-					// icon={{}}
 				/>
 			)
 			.toJSON();

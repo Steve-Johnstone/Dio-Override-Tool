@@ -35,7 +35,7 @@ describe('MainScreen component', () => {
 		const items = getAllByRole('listitem');
 		expect(items.length).toBe(8);
 
-		//Expect the list to include the selected overrides
+		//Expect the list to include overrides in the list
 		expect(screen.getByText('Australian Print Receipt')).toBeInTheDocument();
 		expect(screen.getByText('No Cancel Button')).toBeInTheDocument();
 	});
