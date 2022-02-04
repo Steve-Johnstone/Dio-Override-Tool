@@ -34,9 +34,15 @@ const OpeningScreen = ({ setUrl, setOverrideList, setSelectedOverrides }) => {
 		setOverrideListIntoState();
 	};
 
-	const setOverrideListIntoState = () => {
-		if (userInput.includes('?')) {
-			let [pagePath, overrideSection] = userInput.split('?');
+	const handlePaste = (input) => {
+		setOverrideListIntoState(input);
+	};
+
+	const setOverrideListIntoState = (pastedInput) => {
+		let url = pastedInput ? pastedInput : userInput;
+
+		if (url.includes('?')) {
+			let [pagePath, overrideSection] = url.split('?');
 			let preSelectedOverrides = overrideSection.substring(9).split(',');
 
 			if (!overrides[pagePath]) {
@@ -47,12 +53,12 @@ const OpeningScreen = ({ setUrl, setOverrideList, setSelectedOverrides }) => {
 			setUrl(pagePath);
 			setOverrideList(overrides[pagePath]);
 		} else {
-			if (!overrides[userInput]) {
+			if (!overrides[url]) {
 				setError('ERROR: no overrides found for provided URL.');
 				return;
 			}
-			setUrl(userInput);
-			setOverrideList(overrides[userInput]);
+			setUrl(url);
+			setOverrideList(overrides[url]);
 		}
 		navigate('/overrides');
 	};
@@ -77,6 +83,7 @@ const OpeningScreen = ({ setUrl, setOverrideList, setSelectedOverrides }) => {
 									placeholder='www.hotels.com'
 									type='text'
 									onChange={(e) => setUserInput(e.target.value)}
+									onPaste={(e) => handlePaste(e.clipboardData.getData('Text'))}
 								></input>
 							</div>
 							<Button

@@ -47,6 +47,7 @@ exports[`OpeningScreen component should display the DOM correctly 1`] = `
               className="input is-link level-item"
               name="url"
               onChange={[Function]}
+              onPaste={[Function]}
               placeholder="www.hotels.com"
               type="text"
             />
