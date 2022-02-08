@@ -100,6 +100,7 @@ describe('E2E tests for valid URL containing no pre-selected overrides', () => {
 			'http://localhost:8080/cop/bookingDetails/bookingDetailsPage?override='
 		);
 	});
+
 	it('should clear all the overrides from the selected overrides list in the footer when "Clear All" is clicked and also remove them from the url', async () => {
 		//Click on the 5th and 14th overrides in the list ('Australian Print Receipt', 'Cm App Web)
 		await page.click('.override-list > li:nth-child(7)');
@@ -199,7 +200,7 @@ describe('E2E tests for valid URL containing pre-selected overrides', () => {
 		let page = await browser.newPage();
 		await page.goto('http://localhost:3000/');
 
-		//Enter a valid url which contains pre-selected overrides ('affiliate-ana' & 'breakfast-upsell-error'') and click on the 'GO' button.
+		//Enter a valid url which contains pre-selected overrides and click on the 'GO' button.
 		await page.click('input[name="url"]');
 		await page.type(
 			'input[name="url"]',

@@ -10,7 +10,7 @@ describe('UrlDisplay component', () => {
 			/>
 		);
 
-		//Expect the correct URL to be display
+		//Expect the correct URL to be displayed
 		expect(
 			screen.getByText(
 				'http://localhost:8080/this/is/a/random/url?override=an-override,another-override'
